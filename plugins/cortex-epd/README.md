@@ -1,10 +1,10 @@
-# EPD review — demo prerelease
+# EPD review — incremental prerelease
 
 For EPD practitioners exploring engagement intake, evidence-backed pre-audit and interpretation of CLI-produced findings.
 
 ## What it does
 
-Clarify the represented role, programme/PCR route, date and material roles; relay guided-intake questions; run a separately authorized demo review and explain the report with evidence locations.
+Clarify the represented role, programme/PCR route, date and material roles; relay guided-intake questions; run a separately authorized review and explain the report with evidence locations.
 
 ## Install the plugin
 
@@ -22,8 +22,8 @@ This loads instructions and agent roles, not a CLI, credentials or business data
 
 ## Native CLI and requirements
 
-- Plugin version: **0.1.1**.
-- CLI executable: `cortex-epd`. Supply wrapper: **0.1.0**.
+- Plugin version: **0.1.2**.
+- CLI executable: `cortex-epd`. Actual CLI version: **0.1.0-dev.21.candidate.41755813555.1.2**; native `expert-release` format, not a supply wrapper.
 - Catalog platforms: `darwin-arm64, linux-x64, win32-x64`. Missing platforms are unsupported by this catalog.
 - Exact archive URLs, SHA256 and executable/skill paths: [release catalog](https://github.com/HiQ-AI/plugins/blob/main/marketplace.json).
 
@@ -33,7 +33,7 @@ Start with the matching CLI's version and help. Do not guess commands or assume 
 
 ## Limits and side effects
 
-Executable **0.1.0-dev.14.candidate.39933331655.1.2** is demo-only and promotable:false; formal promotion remains on hold. Plugin 0.1.1 and supply wrapper 0.1.0 do not indicate a stable release. This catalog does not supply dev.21. Registration/copying materials and review execution have separate effects. A report is not a certificate or signed opinion.
+Executable **0.1.0-dev.21.candidate.41755813555.1.2** is a published incremental prerelease. Stability and professional acceptance remain incomplete: a real-case run exhausted network retries without a final report; repeat-run stability, normative coverage, clean holdout and institution-approved templates remain unaccepted. Original candidate `promotable:false` evidence is retained, not rewritten. Windows is unsigned and may show SmartScreen; do not disable OS protection. A report is not a certificate or signed opinion. See [release and Host compatibility](https://github.com/HiQ-AI/plugins/blob/main/docs/EPD_RELEASE.md).
 
 Use only authorized input, preserve originals, keep credentials out of conversations and inspect actual receipts/readback. Do not blindly repeat an uncertain write. [Shared capability and permission boundaries](https://github.com/HiQ-AI/plugins/blob/main/docs/CAPABILITIES.md) apply.
 

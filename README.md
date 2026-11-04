@@ -15,10 +15,10 @@ Prepare an openLCA study, work with product carbon-footprint cases, review EPD e
 | [hiq-editor](plugins/hiq-editor/README.md) | HiQ Editor toolkit: the native CLI release, its canonical UPR workflow skill and evidence-based authoring/review agents. |
 | [jimu-lca](plugins/jimu-lca/README.md) | Inspect JiMULCA product carbon-footprint cases and run authorized inventory, binding and calculation operations with the user's own member credential. |
 | [cortex-lca-expert](plugins/cortex-lca-expert/README.md) | Preview wrapper for cortex-lca-expert 0.1.0-dev.14: build, inspect and calculate openLCA models using the user's installed application and Cortex expert authorization. Wrapper version 0.1.0 is not a stable CLI release. |
-| [cortex-epd](plugins/cortex-epd/README.md) | Demo-only prerelease wrapper for cortex-epd 0.1.0-dev.14.candidate.39933331655.1.2. EPD pre-audit instructions come from that complete candidate. HOLD remains in effect; this is not promotion, product acceptance or certification. |
+| [cortex-epd](plugins/cortex-epd/README.md) | EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.21.candidate.41755813555.1.2. Stability and professional acceptance remain incomplete; not certification. |
 <!-- catalog:end -->
 
-For both expert plugins, `0.1.0` in the download path and Cortex supply metadata is the **archive wrapper version**, not a stable CLI version. The executable versions are shown above. EPD's newer development source does not make a newer downloadable release available. This catalog does not supply EPD dev.21.
+openLCA still uses a `0.1.0` supply wrapper around its prerelease CLI. EPD now points directly to native incremental prerelease **0.1.0-dev.21.candidate.41755813555.1.2**, with no wrapper-version substitution. See [EPD release and Host compatibility](docs/EPD_RELEASE.md). Neither expert is a stable release or proof of completed professional acceptance.
 
 ## Install in Claude Code
 
@@ -52,7 +52,7 @@ See [compatibility and verification](docs/COMPATIBILITY.md) for platform coverag
 
 - **Building an LCA study?** Use the prerelease openLCA plugin with your own official openLCA installation and appropriately licensed databases. Dataset lookup does not calculate a model.
 - **Working in JiMULCA?** Use its case workflow and the intended space/case. Local file edits do not change a remote case.
-- **Preparing or reviewing an EPD?** The demo prerelease assists with intake and evidence. A generated report is not certification, and review execution requires explicit delegation and model-cost authorization.
+- **Preparing or reviewing an EPD?** The incremental prerelease assists with intake and evidence. A generated report is not certification, and review execution requires explicit delegation and model-cost authorization.
 - **Authoring data in Editor?** Separate workbook preparation, preflight, import, trial calculation and review submission. Each has different effects; submission may notify reviewers.
 - **Finding internal knowledge?** Nora reads published pages under your organization's access rules and preserves versioned citations.
 

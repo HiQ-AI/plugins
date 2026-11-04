@@ -1,7 +1,7 @@
 {
   "name": "cortex-epd",
-  "version": "0.1.1",
-  "description": "Demo-only prerelease wrapper for cortex-epd 0.1.0-dev.14.candidate.39933331655.1.2. EPD pre-audit instructions come from that complete candidate. HOLD remains in effect; this is not promotion, product acceptance or certification.",
+  "version": "0.1.2",
+  "description": "EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.21.candidate.41755813555.1.2. Stability and professional acceptance remain incomplete; not certification.",
   "author": {
     "name": "HiQ"
   },

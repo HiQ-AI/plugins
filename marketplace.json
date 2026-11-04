@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "updated_at": "2026-11-04",
   "categories": [
     {
@@ -278,21 +278,20 @@
     {
       "id": "cortex-epd",
       "type": "plugin",
-      "name": "EPD 审核（预发布演示）",
-      "description": "预发布候选，仅演示，不代表正式晋级或产品验收。CLI 0.1.0-dev.14.candidate.39933331655.1.2，用于 EPD 预审与证据说明；HOLD 保持不变，0.1.0 仅是供给包装版本。",
-      "description_en": "Demo-only prerelease candidate, not promotion or product acceptance. CLI 0.1.0-dev.14.candidate.39933331655.1.2 supports EPD pre-audit and evidence review. HOLD remains unchanged; 0.1.0 is only the supply wrapper version.",
-      "version": "0.1.1",
+      "name": "EPD 审核（增量预发行）",
+      "description": "使用已公开的增量预发行 CLI 0.1.0-dev.21.candidate.41755813555.1.2 开展授权的 EPD 证据审查与报告解读；稳定性和专业验收仍未完成，不等于认证。",
+      "description_en": "EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.21.candidate.41755813555.1.2. Stability and professional acceptance remain incomplete; not certification.",
+      "version": "0.1.2",
       "author": "HiQ",
       "category": "lca",
       "tags": [
         "epd",
         "audit",
-        "preview",
-        "demo"
+        "preview"
       ],
       "path": "plugins/cortex-epd",
-      "requirements": "仅演示的预发布候选 0.1.0-dev.14.candidate.39933331655.1.2，promotable:false，正式晋级仍 HOLD。安装保留完整侧车，但不代表审核就绪。Docling 2.140.0-1 需另外校验并安装（约 0.8-0.9 GB 下载），审核还需 CLI 自主设备登录与 epd-audit 权益、明确委托及模型费用授权。本次安装不登录、不审核、不出具认证。",
-      "requirements_en": "Demo-only prerelease 0.1.0-dev.14.candidate.39933331655.1.2, promotable:false; formal promotion remains HOLD. Complete sidecars are preserved, but installation is not review readiness. Locked Docling 2.140.0-1 requires a separate verified installation (about 0.8-0.9 GB download). Reviews require the CLI device login and epd-audit entitlement, a confirmed delegation and model-cost authorization. Installation does not log in, review materials or issue certification.",
+      "requirements": "完整原生增量预发行 0.1.0-dev.21.candidate.41755813555.1.2；需要支持 expert-release 格式的新 Host。Docling 2.140.0-1 另行准备，审核需要 CLI 登录、epd-audit 权益、明确委托和模型费用授权。Windows 未签名，可能触发 SmartScreen；Intel Mac 不支持。",
+      "requirements_en": "Complete native incremental prerelease 0.1.0-dev.21.candidate.41755813555.1.2; requires a Host supporting expert-release format. Prepare locked Docling 2.140.0-1 separately. Reviews require CLI login, epd-audit entitlement, delegation and model-cost authorization. Windows is unsigned and may show SmartScreen; Intel Mac unsupported.",
       "components": {
         "skills": [
           {
@@ -316,24 +315,25 @@
         ],
         "cli": {
           "name": "cortex-epd",
-          "version": "0.1.0",
-          "executable": "upstream/cortex-epd",
+          "version": "0.1.0-dev.21.candidate.41755813555.1.2",
+          "format": "expert-release",
+          "executable": "cortex-epd",
           "releases": {
             "darwin-arm64": {
-              "url": "https://download.hiq.earth/cli/cortex-epd/releases/v0.1.0/cortex-epd-darwin-arm64.tar.gz",
-              "sha256": "7986266214ab7122f196509aeb279505d758aaea1477258c4915bd29d4a2f82b"
+              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.21.candidate.41755813555.1.2/darwin-arm64/cortex-epd-0.1.0-dev.21.candidate.41755813555.1.2-darwin-arm64.tar.gz",
+              "sha256": "0737a979990e7b6e7bc660e303053dc7a26918cc01bd6c50399170c81dc959ec"
             },
             "linux-x64": {
-              "url": "https://download.hiq.earth/cli/cortex-epd/releases/v0.1.0/cortex-epd-linux-x64.tar.gz",
-              "sha256": "7198a038bb14fd340d4dcd91e3c0b37daa80b8102b16f50df8cf746dc58979bd"
+              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.21.candidate.41755813555.1.2/linux-x64/cortex-epd-0.1.0-dev.21.candidate.41755813555.1.2-linux-x64.tar.gz",
+              "sha256": "86d49f31cdf4db79ce7dcee1ecdd001ebc1514580cc9327b72906d873fb83efa"
             },
             "win32-x64": {
-              "url": "https://download.hiq.earth/cli/cortex-epd/releases/v0.1.0/cortex-epd-win32-x64.tar.gz",
-              "sha256": "f3c9b49ad306fda88d8a58c1eb7d530282c5b53218416721059da1a96ff4a4b8"
+              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.21.candidate.41755813555.1.2/win32-x64/cortex-epd-0.1.0-dev.21.candidate.41755813555.1.2-win32-x64.tar.gz",
+              "sha256": "a420527151e89e37af10de3ca38eb4ab29f219e779d68c7821cdbc129a81cfb7"
             }
           },
           "skillPaths": {
-            "epd-audit": "upstream/assets/skills/epd-audit/SKILL.md"
+            "epd-audit": "assets/skills/epd-audit/SKILL.md"
           }
         }
       }

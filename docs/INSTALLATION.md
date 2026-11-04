@@ -18,7 +18,7 @@ Install one or more plugins by ID:
 /plugin install cortex-epd@hiq-plugins
 ```
 
-These are Claude Code interface commands, not shell commands. Choose only the plugins you need. The last two are prerelease; EPD is demo-only. This repository is an independently maintained marketplace, not an official-directory listing.
+These are Claude Code interface commands, not shell commands. Choose only the plugins you need. The last two are prerelease; EPD is an incremental prerelease with incomplete stability/professional acceptance. This repository is an independently maintained marketplace, not an official-directory listing.
 
 ## 2. Prepare the corresponding native CLI
 
@@ -30,14 +30,14 @@ For manual preparation:
 
 1. Choose the exact platform entry in the catalog. If your platform has no entry, it is unsupported by this catalog; do not run another platform's binary.
 2. Download its archive into a new directory. Verify the entire archive against the listed SHA256 **before** extraction or execution. Downloading an archive is not permission to run it.
-3. Extract the complete archive. Preserve the directory structure and sidecars; do not copy only the executable. Expert archives contain `upstream/` and a wrapper manifest. Other archives use their own release layout.
+3. Extract the complete archive. Preserve the directory structure and sidecars; do not copy only the executable. The openLCA archive uses `upstream/` and a wrapper manifest; EPD uses its native release-manifest layout without a wrapper. Other archives use their own release layout.
 4. Invoke the listed relative executable from the extracted release root by its absolute path, or register it through the CLI's own documented installation process after authorization. On Windows use native PowerShell quoting and the release's Windows executable/entry; do not require a POSIX shell.
-5. Check version and help using that exact release. The expert archives use supply wrapper `0.1.0`, but their executables report prerelease versions. A plugin version, archive directory name or successful download does not prove runtime readiness.
+5. Check version and help using that exact release. openLCA uses supply wrapper `0.1.0`; EPD pins its actual prerelease version directly. A plugin version, archive directory name or successful download does not prove runtime readiness.
 6. If using a release-owned operating skill in another host, use that CLI's documented skill installation mechanism. Do not overwrite an existing customized skill, register all hosts or change global permissions without authorization.
 
 Publisher entry points are available for [Editor](https://download.hiq.earth/cli/hiq-editor/install.md), [Nora](https://download.hiq.earth/cli/cortex-org-wiki/install.sh) and [JiMU](https://download.hiq.earth/cli/jimu-lca/install.sh). Inspect the instructions and platform/version before running an installer. A script link is not a recommendation to pipe an uninspected response into a shell. For both expert previews, use the pinned archives; do not infer a current installer URL from the CLI name.
 
-The proposed newer EPD `experts/cortex-epd/latest.json` and `install.sh` endpoints returned HTTP 403 during verification on 2026-11-04. They are not usable public installation paths in this guide. The catalog's older candidate archives are separate, accessible artifacts; they are not a release of dev.21.
+EPD public [installation instructions](https://download.hiq.earth/experts/cortex-epd/install.md) and versioned manifests are now available for **0.1.0-dev.21.candidate.41755813555.1.2**. The Cortex entry requires explicit `expert-release` Host support; an older wrapper-only Host cannot consume it. See [the release boundary](EPD_RELEASE.md).
 
 ## 3. Confirm version and access
 
@@ -49,11 +49,11 @@ Run the relevant discovery command only after trusting and preparing the release
 | Editor | `hiq-editor version --json`, `--help` | CLI login, correct account/organization/datasource and business permissions |
 | JiMU | `jimu-lca --version`, `--help` | macOS arm64; user's controlled member-key configuration; this archive does not include the addon required by native login |
 | openLCA modeling | `cortex-lca-expert version`, `--help`, `status --offline` | Official openLCA installation, selected workspace/database, CLI device login and `lca-modeling-expert` entitlement; ordinary modeling does not require Pi/model login |
-| EPD demo | `cortex-epd version -f json`, `--help`, `doctor --offline -f json` | Matching candidate's full sidecars, separately installed locked Docling 2.140.0-1 (approximately 0.8–0.9 GB download), CLI device login and `epd-audit` entitlement for reviews |
+| EPD prerelease | `cortex-epd version -f json`, `--help`, `doctor --offline -f json` | Matching candidate's full sidecars, separately installed locked Docling 2.140.0-1 (approximately 0.8–0.9 GB download), CLI device login and `epd-audit` entitlement for reviews |
 
 Do not put member keys or API keys in chat. Use the CLI's existing controlled credential mechanism. Do not inspect credential files or copy tokens from Desktop or another checkout. A missing entitlement is an access limitation, not a reason to switch endpoints or identities.
 
-EPD offline doctor can report not ready when Docling or authentication is missing. That is not permission to download, log in, start a review or incur model costs automatically. A review requires a confirmed engagement, authorized materials and explicit model-cost authorization. The demo candidate is not approved for formal promotion or certification.
+EPD offline doctor can report not ready when Docling or authentication is missing. That is not permission to download, log in, start a review or incur model costs automatically. A review requires a confirmed engagement, authorized materials and explicit model-cost authorization. The incremental prerelease does not establish completed professional acceptance or certification.
 
 ## 4. Start with a bounded task
 

@@ -1,0 +1,10 @@
+{
+  "name": "querying-lca-datasets-expert",
+  "version": "0.5.1",
+  "description": "Query LCA process datasets and match inventory requirements using the self-contained querying-lca-datasets CLI, with provenance and representativeness review.",
+  "repository": "https://github.com/HiQ-AI/plugins",
+  "license": "MIT",
+  "author": {
+    "name": "HiQ"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "jimu-lca",
+  "version": "0.2.2",
+  "description": "Inspect JiMULCA product carbon-footprint cases and run authorized inventory, binding and calculation operations with the user's own member credential.",
+  "repository": "https://github.com/HiQ-AI/plugins",
+  "license": "MIT",
+  "author": {
+    "name": "HiQ"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "hiq-plugins",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/catalog.mjs --write",
+    "test": "node scripts/catalog.mjs"
+  }
+}

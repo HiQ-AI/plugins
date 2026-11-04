@@ -1,0 +1,287 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-11-04",
+  "categories": [
+    {
+      "id": "lca",
+      "name": "LCA 专业",
+      "name_en": "LCA Expertise",
+      "description": "生命周期评估相关的专业技能：数据校验、质量评估、合规框架、计算工具、数据库查询",
+      "description_en": "Life-cycle assessment expertise: data validation, quality assessment, compliance frameworks, calculation tools, database queries",
+      "order": 1
+    },
+    {
+      "id": "utility",
+      "name": "通用工具",
+      "name_en": "General Utility",
+      "description": "通用辅助工具：文献检索、工作区探查、图表生成",
+      "description_en": "General-purpose utilities: literature search, workspace inspection, diagram generation",
+      "order": 3
+    }
+  ],
+  "plugins": [
+    {
+      "id": "cortex-org-wiki",
+      "type": "plugin",
+      "name": "Nora 组织知识库",
+      "description": "用 Nora CLI 检索当前组织已发布的项目资料、流程与决策，按页面版本读取并追溯资料出处。复用 Cortex 组织知识库 CLI 0.1.5，自主登录。",
+      "description_en": "Search Nora for your organization's published projects, procedures and decisions, read exact page versions and cite their sources. Uses Cortex organization Wiki CLI 0.1.5 with its own login.",
+      "version": "0.1.6",
+      "author": "HiQ",
+      "category": "utility",
+      "tags": [
+        "nora",
+        "wiki",
+        "organization",
+        "knowledge"
+      ],
+      "path": "plugins/cortex-org-wiki",
+      "requirements": "安装原生 CLI 0.1.5，无需 Node/npm/Bun。首次使用通过 cortex-org-wiki login 自主设备授权，并确认目标组织与成员身份；不注入 Desktop JWT。CLI 只读已发布知识，安装不授予组织访问权限，也不提交、审批或发布材料。",
+      "requirements_en": "Installs native CLI 0.1.5 without Node/npm/Bun. Use cortex-org-wiki login for its own device authorization and confirm the intended organization and membership; no Desktop JWT is injected. Reads published knowledge only. Installation grants no organization access and does not submit, approve or publish materials.",
+      "components": {
+        "skills": [
+          {
+            "id": "cortex-org-wiki",
+            "description": "需要组织内部项目、流程或决策证据时使用；检索已发布页面，按版本读取并引用来源。"
+          }
+        ],
+        "agents": [
+          {
+            "id": "wiki-researcher",
+            "description": "知识检索：围绕组织项目、流程和决策寻找已发布页面，读取对应版本并整理来源。"
+          },
+          {
+            "id": "source-checker",
+            "description": "出处核验：检查答案是否得到指定页面版本和原文支持，标出过时、冲突或缺失的证据。"
+          },
+          {
+            "id": "knowledge-synthesizer",
+            "description": "知识综合：把检索结果整理成项目简报、流程说明或决策对照，保留引用与未决分歧。"
+          }
+        ],
+        "cli": {
+          "name": "cortex-org-wiki",
+          "version": "0.1.5",
+          "executable": "bin/cortex-org-wiki",
+          "releases": {
+            "darwin-arm64": {
+              "url": "https://download.hiq.earth/cli/cortex-org-wiki/releases/v0.1.5/cortex-org-wiki-plugin-darwin-arm64.tar.gz",
+              "sha256": "8c33b57ccf6507b3bad8dcf887f99cd094374f1d25413bdf8230e2ca6255d9cf"
+            },
+            "darwin-x64": {
+              "url": "https://download.hiq.earth/cli/cortex-org-wiki/releases/v0.1.5/cortex-org-wiki-plugin-darwin-x64.tar.gz",
+              "sha256": "8d119d208a9c9868b397479330b82f90af5f38858f8be8467c8555792131c3b7"
+            },
+            "linux-arm64": {
+              "url": "https://download.hiq.earth/cli/cortex-org-wiki/releases/v0.1.5/cortex-org-wiki-plugin-linux-arm64.tar.gz",
+              "sha256": "caa9d8e9202ac67ad980a8d34fb8abcde1e1945e7f9fbcc679bf9d407d3d66d8"
+            },
+            "linux-x64": {
+              "url": "https://download.hiq.earth/cli/cortex-org-wiki/releases/v0.1.5/cortex-org-wiki-plugin-linux-x64.tar.gz",
+              "sha256": "ae6fc77567aa0bfd04caad187607eb62f4185454c788020c49efbf0af9d451c6"
+            },
+            "win32-x64": {
+              "url": "https://download.hiq.earth/cli/cortex-org-wiki/releases/v0.1.5/cortex-org-wiki-plugin-win32-x64.tar.gz",
+              "sha256": "a93d460069b8549c178adf2fa4680d322817741b82f4a09e3a9cd364a16c2cea"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "hiq-editor",
+      "type": "plugin",
+      "name": "HiQ Editor",
+      "description": "从 UPR 工作簿预检、导入到试算与提交复核的工具包，包含原生 CLI、与发行件配套的 SKILL 以及编制和证据复核角色。",
+      "description_en": "A toolkit for UPR preflight, import, trial calculation and authorized review submission, with the native CLI, its release-matched skill and authoring/evidence-review agents.",
+      "version": "0.12.0",
+      "author": "HiQ",
+      "category": "lca",
+      "tags": [
+        "editor",
+        "UPR",
+        "ILCD",
+        "dataset",
+        "数据集",
+        "编制",
+        "导入",
+        "试算",
+        "复核"
+      ],
+      "path": "plugins/hiq-editor",
+      "requirements": "安装会下载当前平台的完整原生 CLI 发行件，并从中读取权威 SKILL。CLI 无需另装 Node/Bun/npm；首次业务使用请按 hiq-editor 自己的登录流程完成登录，并确认当前账号、组织及目标数据源。安装完成不代表具有编辑或提交权限。只有明确授权后才执行导入、试算或提交复核；本工具包不自动连接 MCP。",
+      "requirements_en": "Installation downloads the complete native CLI release for this platform and materializes its canonical skill. No separate Node/Bun/npm is required. Use hiq-editor’s own login flow before business operations and confirm the account, organization and target datasource. Installation does not grant editing or submission permissions. Import, trial calculation and review submission require their applicable explicit authorization. This toolkit does not automatically connect an MCP server.",
+      "components": {
+        "skills": [
+          {
+            "id": "hiq-editor",
+            "description": "使用与 CLI 同一发行件的说明，发现真实命令和参数；先确认账号与目标，再完成 UPR 预检、导入后回读、试算及获授权的复核提交。"
+          }
+        ],
+        "agents": [
+          {
+            "id": "dataset-editor",
+            "description": "编制角色：按已授权的文件与目标推进 CLI 工作流，处理预检阻断，并保留实际回执；不把准备数据等同于获准提交。"
+          },
+          {
+            "id": "dataset-reviewer",
+            "description": "证据复核角色：检查工作簿、预检与已有回执的一致性，区分已验证事实和缺口；不执行导入、试算或提交写操作。"
+          }
+        ],
+        "cli": {
+          "name": "hiq-editor",
+          "version": "0.12.0",
+          "executable": "bin/hiq-editor",
+          "releases": {
+            "darwin-arm64": {
+              "url": "https://download.hiq.earth/cli/hiq-editor/releases/v0.12.0/hiq-editor-darwin-arm64.tar.gz",
+              "sha256": "396ff9848117f6b64ab559ce967e0f812d38dc377651cd4f8b457f3b2d1849a7"
+            },
+            "darwin-x64": {
+              "url": "https://download.hiq.earth/cli/hiq-editor/releases/v0.12.0/hiq-editor-darwin-x64.tar.gz",
+              "sha256": "b27504fe82cca0626a28b91a51d86c5d1aae979d031eb07851be6ebb476eeab0"
+            },
+            "linux-arm64": {
+              "url": "https://download.hiq.earth/cli/hiq-editor/releases/v0.12.0/hiq-editor-linux-arm64.tar.gz",
+              "sha256": "2dd0a3a62ecf803382360b0bd9dbee08908ea75713831a7ef18af6e29708ee9b"
+            },
+            "linux-x64": {
+              "url": "https://download.hiq.earth/cli/hiq-editor/releases/v0.12.0/hiq-editor-linux-x64.tar.gz",
+              "sha256": "316ff4edab2628087135f289c721ea6946351ff88293564a17424d4aca4b6d0d"
+            },
+            "win32-x64": {
+              "url": "https://download.hiq.earth/cli/hiq-editor/releases/v0.12.0/hiq-editor-win32-x64.tar.gz",
+              "sha256": "3b23ce02aad67810585ee5ad596a5b5eb9e088f9a2b3c13ffd0f56a05f45fb9c"
+            }
+          },
+          "skillPaths": {
+            "hiq-editor": "app/assets/hiq-editor/SKILL.md"
+          }
+        }
+      },
+      "recommended_prompt": "帮我预检这份 UPR 工作簿。先用已安装的 HiQ Editor CLI 确认当前账号、组织和可选数据源，说明发现的阻断与下一步；这次只做预检，不导入、试算或提交复核。",
+      "recommended_prompt_en": "Preflight this UPR workbook. First use the installed HiQ Editor CLI to verify the current account, organization and available datasources, then explain blockers and next steps. This request authorizes preflight only, not import, trial calculation or review submission."
+    },
+    {
+      "id": "querying-lca-datasets-expert",
+      "type": "plugin",
+      "name": "Querying LCA Datasets",
+      "description": "使用自包含 CLI 检索 LCA 过程数据集，将物料、能源、运输/处理服务等清单需求进行匹配，保留来源坐标并复核时间、地域、技术代表性与参考产品/单位一致性；不修改模型或执行 EPD 审核。",
+      "description_en": "Query LCA process datasets and match material, energy, transport and treatment inventory requirements through the self-contained CLI. Preserve provenance and review temporal, geographical and technological representativeness and reference product/unit consistency; no model edits or EPD audit.",
+      "version": "0.5.1",
+      "author": "HiQ",
+      "category": "lca",
+      "tags": [
+        "lca",
+        "datasets",
+        "search",
+        "bom",
+        "matching"
+      ],
+      "path": "plugins/querying-lca-datasets-expert",
+      "requirements": "原生 CLI 0.5.1，五平台自包含二进制，无需额外运行环境；只从自有 CDN 取得带 manifest 的原生归档。使用 querying-lca-datasets 自身登录或受控的 QUERYING_LCA_DATASETS_API_KEY，不注入 Desktop JWT，不读取旧客户端登录存储。安装不授予商业数值访问权益。本插件只读检索、匹配、查询与核验，不导入、绑定、计算、审核或通知。Chat 独立 querying-lca-datasets 技能原样保留；本插件使用不同的 expert/guide ID，不能据此声称 Desktop 旧 catalog 下载已退役。",
+      "requirements_en": "Native CLI 0.5.1, five self-contained platform binaries with no external runtime, supplied only from the owned CDN in manifest-bearing archives. Uses its own login or a controlled QUERYING_LCA_DATASETS_API_KEY, never Desktop JWT or an old client login store. Installation grants no commercial numerical-data rights. Read-only search, inventory matching, lookup and verification: no import, binding, calculation, audit or notifications. The standalone Chat querying-lca-datasets skill is unchanged; distinct expert/guide IDs coexist without claiming Desktop legacy catalog retirement.",
+      "components": {
+        "skills": [
+          {
+            "id": "querying-lca-datasets-guide",
+            "description": "指导 Agent 使用真实 CLI 命令、自主鉴权及证据回执，检索并匹配过程数据集；按任务选择预设查找、清单匹配与代表性复核角色，不自动组成工作流。"
+          }
+        ],
+        "agents": [
+          {
+            "id": "lca-dataset-searcher",
+            "description": "过程数据集查找：按功能、来源坐标、参考产品/单位、地域、时间及技术约束寻找可追溯候选；不限 BOM。"
+          },
+          {
+            "id": "lca-dataset-matcher",
+            "description": "清单匹配：将物料、能源、运输/处理服务等单项或批量需求匹配到过程数据集，保留行身份、依据、代理与未解决项，不修改原清单。"
+          },
+          {
+            "id": "lca-dataset-reviewer",
+            "description": "代表性复核：只读检查时间、地域、技术适用性、参考产品/单位、系统模型与证据质量，不把有效 ID 或相似度当成代表性结论。"
+          }
+        ],
+        "cli": {
+          "name": "querying-lca-datasets",
+          "version": "0.5.1",
+          "executable": "bin/querying-lca-datasets",
+          "releases": {
+            "darwin-arm64": {
+              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-darwin-arm64.tar.gz",
+              "sha256": "fa6b0cf8d4da04e5ca349ad4e58c9748b804579d9a4866b3674d6f8de82574da"
+            },
+            "darwin-x64": {
+              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-darwin-x64.tar.gz",
+              "sha256": "5ad0e689bd25e75ebdcaf9fdbb96c6fb6e33d0bafce5d20523a751024e14cc56"
+            },
+            "linux-arm64": {
+              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-linux-arm64.tar.gz",
+              "sha256": "e5c56f3786243cec244d8e9d27db40eeabad4e27b353cc9d466d0b5a7f5ab866"
+            },
+            "linux-x64": {
+              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-linux-x64.tar.gz",
+              "sha256": "9060f20a3744cf2c4e21d578fa70030c74b6b4c2818ffe69a554a5fef718a393"
+            },
+            "win32-x64": {
+              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-win32-x64.tar.gz",
+              "sha256": "3af22e08c8f1bb70c106e65a89a8c8cd10df2054424240f297fdc10b1fae222c"
+            }
+          }
+        }
+      },
+      "recommended_prompt": "用 Querying LCA Datasets 为中国生产的 304 不锈钢寻找参考单位 kg 的过程数据集。先检查 CLI 与访问状态；列出来源、版本、模型、参考产品/单位、地域和可用时间/技术证据，说明代理及代表性缺口。有权限时读取真实 GWP，不估算，不修改模型或执行 EPD 审核。",
+      "recommended_prompt_en": "Use Querying LCA Datasets to find process datasets for 304 stainless steel produced in China, with kg as reference unit. Check CLI access; report source/version/model, reference product/unit, geography and available temporal/technology evidence. Explain proxies and representativeness gaps; retrieve real GWP only if authorized, without estimating, model edits or EPD audit."
+    },
+    {
+      "id": "jimu-lca",
+      "type": "plugin",
+      "name": "JiMULCA",
+      "description": "使用 JiMULCA 3.0 查询产品与碳足迹案例，按授权编辑清单、绑定背景数据并计算。原生 CLI 0.2.1，仅支持 macOS Apple Silicon。",
+      "description_en": "Inspect JiMULCA 3.0 products and carbon-footprint cases, then edit inventories, bind backgrounds and calculate when authorized. Native CLI 0.2.1, macOS Apple Silicon only.",
+      "version": "0.2.2",
+      "author": "HiQ",
+      "category": "lca",
+      "tags": [
+        "jimu-lca",
+        "jimu-lca"
+      ],
+      "path": "plugins/jimu-lca",
+      "requirements": "CLI 0.2.1，仅支持 macOS Apple Silicon。安装不下载 SQLite bridge，不执行原安装脚本；UUID 本地绑定需要另外显式准备 bridge。CLI 使用用户自己的 memberKey 受控配置，不使用 Desktop JWT；此原生版本不含 login 所需 addon。安装不授予业务访问、编辑或计算权限。",
+      "requirements_en": "macOS Apple Silicon only. Installation does not run the original installer or download the optional SQLite bridge; UUID-based local binding requires separately preparing it. Supply your own memberKey through a controlled credential mechanism, not Desktop JWT. The native release does not include the addon required by login. Installation grants no business, editing or calculation access.",
+      "components": {
+        "skills": [
+          {
+            "id": "jimu-lca",
+            "description": "在处理积木LCA产品碳足迹案例时使用；先读真实命令帮助并确认产品、空间、案例及授权。"
+          }
+        ],
+        "agents": [
+          {
+            "id": "inventory-analyst",
+            "description": "清单分析：从工艺资料、BOM 和生产记录梳理投入产出、单位换算与证据缺口，不修改案例。"
+          },
+          {
+            "id": "pcf-modeler",
+            "description": "碳足迹建模：在已授权的案例中编制清单、选择背景数据并推进绑定和计算，保留真实回执。"
+          },
+          {
+            "id": "pcf-reviewer",
+            "description": "结果复核：只读核对功能单位、边界、背景数据和热点结果，指出偏差与待核查项。"
+          }
+        ],
+        "cli": {
+          "name": "jimu-lca",
+          "version": "0.2.1",
+          "executable": "bin/jimu-lca",
+          "releases": {
+            "darwin-arm64": {
+              "url": "https://download.hiq.earth/cli/jimu-lca/releases/v0.2.1/jimu-lca-darwin-arm64.tar.gz",
+              "sha256": "ebaaf8f4a849bd513c155d330b0d86954944e7a987275187bcc9c4a8f2b9185b"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

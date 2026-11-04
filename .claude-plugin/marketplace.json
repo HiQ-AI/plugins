@@ -1,0 +1,35 @@
+{
+  "name": "hiq-plugins",
+  "owner": {
+    "name": "HiQ"
+  },
+  "metadata": {
+    "description": "HiQ service plugins with native CLI operating guides."
+  },
+  "plugins": [
+    {
+      "name": "cortex-org-wiki",
+      "source": "./plugins/cortex-org-wiki",
+      "description": "Search Nora's published organization Wiki and read versioned pages with source citations. Use the CLI's own Cortex login and the intended organization.",
+      "version": "0.1.6"
+    },
+    {
+      "name": "hiq-editor",
+      "source": "./plugins/hiq-editor",
+      "description": "HiQ Editor toolkit: the native CLI release, its canonical UPR workflow skill and evidence-based authoring/review agents.",
+      "version": "0.12.0"
+    },
+    {
+      "name": "querying-lca-datasets-expert",
+      "source": "./plugins/querying-lca-datasets-expert",
+      "description": "Query LCA process datasets and match inventory requirements using the self-contained querying-lca-datasets CLI, with provenance and representativeness review.",
+      "version": "0.5.1"
+    },
+    {
+      "name": "jimu-lca",
+      "source": "./plugins/jimu-lca",
+      "description": "Inspect JiMULCA product carbon-footprint cases and run authorized inventory, binding and calculation operations with the user's own member credential.",
+      "version": "0.2.2"
+    }
+  ]
+}

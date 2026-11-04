@@ -1,0 +1,11 @@
+{
+  "name": "hiq-editor",
+  "version": "0.12.0",
+  "description": "HiQ Editor toolkit: the native CLI release, its canonical UPR workflow skill and evidence-based authoring/review agents.",
+  "author": {
+    "name": "HiQ"
+  },
+  "homepage": "https://download.hiq.earth/cli/hiq-editor/install.md",
+  "repository": "https://github.com/HiQ-AI/plugins",
+  "license": "MIT"
+}

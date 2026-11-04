@@ -1,0 +1,10 @@
+{
+  "name": "cortex-org-wiki",
+  "version": "0.1.6",
+  "description": "Search Nora's published organization Wiki and read versioned pages with source citations. Use the CLI's own Cortex login and the intended organization.",
+  "repository": "https://github.com/HiQ-AI/plugins",
+  "license": "MIT",
+  "author": {
+    "name": "HiQ"
+  }
+}

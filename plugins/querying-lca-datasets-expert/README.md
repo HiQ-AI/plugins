@@ -1,21 +1,46 @@
-# Querying LCA Datasets
+# LCA dataset lookup & matching
 
-Query LCA process datasets and match inventory requirements using the self-contained querying-lca-datasets CLI, with provenance and representativeness review.
+For LCA practitioners selecting background process datasets for materials, energy, transport, treatment and other inventory requirements.
 
-Plugin version: 0.5.1. Native CLI: `querying-lca-datasets` 0.5.1.
+## What it does
 
-Installing this plugin in a native plugin host does not install its CLI. Prepare the native CLI separately with user authorization, using the exact platform archive and SHA256 in the [CLI release catalog](https://github.com/HiQ-AI/plugins/blob/main/marketplace.json). The generic installer endpoint is not a verified installation path; do not guess its URL or run a remote shell script. A compatible Cortex Host can provision the pinned CLI from the root catalog; current Desktop catalog routing is unchanged.
+Search datasets, inspect source/version/model and reference units, verify identifiers and propose justified matches or unresolved needs while preserving input-row identity.
 
-The CLI owns its login and business authorization. Installation does not grant data access, write permissions or permission to notify people. See [CLI requirements](https://github.com/HiQ-AI/plugins/blob/main/docs/CLI_REQUIREMENTS.md).
+## Install the plugin
 
-## Spreadsheet tasks
-
-A workbook operation may require a separate, properly licensed spreadsheet capability. This plugin does not bundle or automatically install Anthropic XLSX. [Official XLSX skill](https://github.com/anthropics/skills/blob/main/skills/xlsx/SKILL.md) and [its license](https://github.com/anthropics/skills/blob/main/skills/xlsx/LICENSE.txt) are references only. Check what the current host actually exposes; if missing, explain the operation that is blocked and request an appropriate capability or CSV/JSON input. See [spreadsheet requirements](https://github.com/HiQ-AI/plugins/blob/main/docs/SPREADSHEETS.md).
-
-## Claude Code installation
+In Claude Code:
 
 ```text
-/plugin install querying-lca-datasets-expert --marketplace HiQ-AI/plugins
+/plugin marketplace add HiQ-AI/plugins
 ```
 
-This installs plugin instructions only; prepare the CLI separately as described above.
+```text
+/plugin install querying-lca-datasets-expert@hiq-plugins
+```
+
+This loads instructions and agent roles, not a CLI, credentials or business data. This repository marketplace is not an official-directory listing. Prepare the CLI separately using [installation and integrity checks](https://github.com/HiQ-AI/plugins/blob/main/docs/INSTALLATION.md).
+
+## Native CLI and requirements
+
+- Plugin version: **0.5.1**.
+- CLI executable: `querying-lca-datasets`. CLI version: **0.5.1**.
+- Catalog platforms: `darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-x64`. Missing platforms are unsupported by this catalog.
+- Exact archive URLs, SHA256 and executable/skill paths: [release catalog](https://github.com/HiQ-AI/plugins/blob/main/marketplace.json).
+
+Use CLI device/QR login or its existing controlled API-key configuration. Service entitlements determine available databases and values; public plugin instructions grant no database rights.
+
+Start with the matching CLI's version and help. Do not guess commands or assume installation means readiness. Native Claude Code plugin installation does not interpret Cortex CLI provisioning fields. Codex marketplace adaptation has not been tested; production Desktop has not switched to this source. See [host compatibility](https://github.com/HiQ-AI/plugins/blob/main/docs/COMPATIBILITY.md).
+
+## Limits and side effects
+
+Read-only lookup does not bind data into a model, calculate impacts, import datasets or certify an EPD. A general workbook is not a supported bulk upload merely because it contains an inventory.
+
+Use only authorized input, preserve originals, keep credentials out of conversations and inspect actual receipts/readback. Do not blindly repeat an uncertain write. [Shared capability and permission boundaries](https://github.com/HiQ-AI/plugins/blob/main/docs/CAPABILITIES.md) apply.
+
+## Example request
+
+> Find candidate background processes for these authorized inventory rows, preserving units, provenance and unresolved matches.
+
+## Workbook tasks
+
+Workbook inspection or editing may need a separate spreadsheet capability actually available and properly licensed in the host. This plugin does not bundle or automatically install one. Anthropic's [official XLSX skill](https://github.com/anthropics/skills/blob/main/skills/xlsx/SKILL.md) and [its license](https://github.com/anthropics/skills/blob/main/skills/xlsx/LICENSE.txt) are references, not proof of installation or redistribution rights. If unavailable, explain the specific gap and request CSV/JSON only where adequate; do not imply it preserves all workbook features. See [spreadsheet dependencies](https://github.com/HiQ-AI/plugins/blob/main/docs/SPREADSHEETS.md).

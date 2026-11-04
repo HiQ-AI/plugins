@@ -8,6 +8,8 @@ The plugins here expose business capabilities, not a general Office suite. A plu
 - **Dataset lookup/matching:** use spreadsheet tooling only when the source or requested deliverable is a workbook. Preserve row identity, units and unresolved items. The CLI accepts its documented query inputs; a general workbook is not automatically a supported upload.
 - **Nora:** ordinary search and page reading do not require Excel. A requested workbook export may require a separate spreadsheet capability.
 - **JiMU:** ordinary CLI inventory queries do not require Excel. For workbook inputs or outputs use a separate spreadsheet capability; do not infer that editing a workbook changes a JiMU case.
+- **openLCA prerelease:** inventory workbook inspection or preparation can need spreadsheet tooling. An edited workbook is not an imported native model; authorize and verify any subsequent import or model edit separately.
+- **EPD demo prerelease:** a general workbook editor may help inspect or prepare authorized source material. It does not replace the candidate's separately locked Docling parser/runtime, establish that parsing was complete, or authorize review/model costs.
 
 ## Host behavior
 

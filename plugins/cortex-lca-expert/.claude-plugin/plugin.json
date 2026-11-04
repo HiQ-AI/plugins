@@ -1,0 +1,10 @@
+{
+  "name": "cortex-lca-expert",
+  "version": "0.1.1",
+  "description": "Preview wrapper for cortex-lca-expert 0.1.0-dev.14: build, inspect and calculate openLCA models using the user's installed application and Cortex expert authorization. Wrapper version 0.1.0 is not a stable CLI release.",
+  "author": {
+    "name": "HiQ"
+  },
+  "repository": "https://github.com/HiQ-AI/plugins",
+  "license": "MIT"
+}

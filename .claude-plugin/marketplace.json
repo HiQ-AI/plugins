@@ -30,6 +30,18 @@
       "source": "./plugins/jimu-lca",
       "description": "Inspect JiMULCA product carbon-footprint cases and run authorized inventory, binding and calculation operations with the user's own member credential.",
       "version": "0.2.2"
+    },
+    {
+      "name": "cortex-lca-expert",
+      "source": "./plugins/cortex-lca-expert",
+      "description": "Preview wrapper for cortex-lca-expert 0.1.0-dev.14: build, inspect and calculate openLCA models using the user's installed application and Cortex expert authorization. Wrapper version 0.1.0 is not a stable CLI release.",
+      "version": "0.1.1"
+    },
+    {
+      "name": "cortex-epd",
+      "source": "./plugins/cortex-epd",
+      "description": "Demo-only prerelease wrapper for cortex-epd 0.1.0-dev.14.candidate.39933331655.1.2. EPD pre-audit instructions come from that complete candidate. HOLD remains in effect; this is not promotion, product acceptance or certification.",
+      "version": "0.1.1"
     }
   ]
 }

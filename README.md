@@ -1,48 +1,83 @@
 # HiQ Plugins
 
-Public plugins for HiQ services: native agent roles, operating guides and pinned CLI supply metadata. This repository contains no standalone skill collection, business credentials or CLI binaries.
+Agent plugins for life-cycle assessment, environmental product declarations and organization knowledge.
 
-| Plugin | Plugin version | CLI version | CLI platforms |
+Find background datasets, prepare an openLCA study, work with product carbon-footprint cases, review EPD evidence, author datasets in HiQ Editor, or answer questions from your organization's published Wiki. Each plugin provides task-specific operating instructions and agent roles for its native CLI.
+
+**Public plugin instructions do not grant access to HiQ services, licensed databases or an organization's materials.** You need the relevant CLI, account and permissions. The two expert plugins are explicitly prerelease; see their status before using them.
+
+## Choose a plugin
+
+| Plugin | What you can do | Plugin version | Native CLI / status |
 | --- | --- | --- | --- |
-| Nora organization Wiki (`cortex-org-wiki`) | 0.1.6 | 0.1.5 | macOS arm64/x64, Linux arm64/x64, Windows x64 |
-| HiQ Editor (`hiq-editor`) | 0.12.0 | 0.12.0 | macOS arm64/x64, Linux arm64/x64, Windows x64 |
-| Querying LCA Datasets (`querying-lca-datasets-expert`) | 0.5.1 | 0.5.1 | macOS arm64/x64, Linux arm64/x64, Windows x64 |
-| JiMULCA (`jimu-lca`) | 0.2.2 | 0.2.1 | macOS arm64 only |
+| [Nora organization Wiki](plugins/cortex-org-wiki/README.md) | Find published organization knowledge, read exact page versions and cite sources | 0.1.6 | `cortex-org-wiki` 0.1.5 |
+| [HiQ Editor](plugins/hiq-editor/README.md) | Prepare UPR workbooks, inspect preflight results, import and trial-calculate with authorization | 0.12.0 | `hiq-editor` 0.12.0 |
+| [LCA dataset lookup & matching](plugins/querying-lca-datasets-expert/README.md) | Find background process datasets and match inventory items with provenance and unit evidence | 0.5.1 | `querying-lca-datasets` 0.5.1 |
+| [JiMULCA](plugins/jimu-lca/README.md) | Inspect or revise product carbon-footprint cases, bind backgrounds and calculate when authorized | 0.2.2 | `jimu-lca` 0.2.1; macOS Apple Silicon only |
+| [openLCA modeling — prerelease](plugins/cortex-lca-expert/README.md) | Turn process records or an existing model into an openLCA study, calculation and evidence-backed interpretation | 0.1.1 | `cortex-lca-expert` **0.1.0-dev.14** |
+| [EPD review — demo prerelease](plugins/cortex-epd/README.md) | Prepare an EPD review engagement and explain CLI-produced findings and evidence | 0.1.1 | `cortex-epd` **0.1.0-dev.14.candidate.39933331655.1.2**; demo-only, not approved for formal promotion |
 
-EPD and LCA expert prerelease packages are not included. This is a fresh repository, not a public copy of the previous catalog's history.
+For both expert plugins, `0.1.0` in the download path and Cortex supply metadata is the **archive wrapper version**, not a stable CLI version. The executable versions are shown above. EPD's newer development source does not make a newer downloadable release available. This catalog does not supply EPD dev.21.
 
-## Installation and host support
+## Install in Claude Code
 
-The Cortex-format `marketplace.json` pins CLI downloads and SHA256 digests. A compatible Cortex Host provisions the declared native CLI, verifies its release and materializes release-owned operating skills. **Current Desktop clients still use their existing catalog; this publication does not migrate or release Desktop.**
+Add this repository as a marketplace:
 
-The `.claude-plugin/marketplace.json` is the Claude Code plugin index. In Claude Code, add `HiQ-AI/plugins` as a plugin marketplace and install a selected plugin through the native plugin interface. Plugin installation loads its skills and agents; it does **not** run a CLI installer or provision a binary. Prepare the corresponding CLI separately using the publisher's documented installation process. See each plugin's README and [CLI requirements](docs/CLI_REQUIREMENTS.md). No install hooks, MCP server or login automation is bundled.
-
-Plugin roles and guides do not grant service access. Each CLI retains its own login, organization and data permissions. Never paste credentials into a conversation or copy authentication from another application. Business writes, calculations and submissions require the user's authorization for the actual target.
-
-## Excel / XLSX
-
-A workbook task may need a spreadsheet capability in addition to a business CLI. This is an **optional task dependency**, not a prerequisite for every plugin task. Plugin guides state what to do when a workbook is involved.
-
-Anthropic's official XLSX skill is available at:
-- [Official skill](https://github.com/anthropics/skills/blob/main/skills/xlsx/SKILL.md)
-- [Applicable license](https://github.com/anthropics/skills/blob/main/skills/xlsx/LICENSE.txt)
-
-These are references, not an automatic install or a license grant. This repository does not copy, redistribute or automatically fetch that skill. Use the host's available, properly licensed spreadsheet capability, or ask the user to enable one through their host's supported interface. Do not claim a URL means the skill is installed. If unavailable, explain the limitation and request a CSV/JSON export where suitable; do not rename a CSV file to `.xlsx` or silently modify the original workbook. Details: [spreadsheet dependencies](docs/SPREADSHEETS.md).
-
-## Maintenance
-
-The Cortex catalog is the authority for plugin identities, versions and CLI pins; the Claude Code index is a generated projection. After editing the catalog or plugin manifests:
-
-```bash
-npm run generate
+```text
+/plugin marketplace add HiQ-AI/plugins
 ```
 
-```bash
-npm test
+Then install the plugin you need, for example:
+
+```text
+/plugin install querying-lca-datasets-expert@hiq-plugins
 ```
 
-CI performs static catalog validation on a GitHub-hosted runner, not an internal self-hosted runner. It does not execute native CLI downloads, business calls, models or desktop tests. There is no release/deployment workflow.
+Use any plugin ID from the table in the same form, or select it through the host's plugin interface. This is a repository marketplace, not a claim of inclusion in Anthropic's official directory.
+
+**Plugin installation loads instructions and agent roles. It does not install a CLI, log in, download databases or run business operations.** Prepare the CLI separately using [the installation guide](docs/INSTALLATION.md), verify its actual version, and complete its own login or controlled credential setup. Keep full release bundles together: expert CLIs need their sidecar assets, not just an executable copied out of an archive.
+
+## What to expect from your host
+
+| Host | Support boundary |
+| --- | --- |
+| Claude Code | Native marketplace and all six plugin manifests have been validated with the installed CLI. Installation syntax is documented; no model-driven, end-to-end business workflow is claimed by this check. |
+| Cortex Desktop | The root catalog carries Cortex-specific, pinned CLI supply metadata for compatible Hosts. Production Desktop has **not** switched to this repository; this publication is not a Desktop release. |
+| Codex and other agents | Some expert CLIs have their own host-skill installation commands. This repository's marketplace has **not** been adapted or tested as a Codex plugin installer. Do not assume Claude Code marketplace commands apply to another host. |
+
+See [compatibility and verification](docs/COMPATIBILITY.md) for platform coverage, tested behavior and remaining limitations.
+
+## Use the right tool for the task
+
+- **Looking for a background factor or dataset?** Start with dataset lookup. A match needs compatible function, units, geography, technology and period; a search hit alone does not establish suitability.
+- **Building an LCA study?** Use the prerelease openLCA plugin with your own official openLCA installation and appropriately licensed databases. Dataset lookup does not calculate a model.
+- **Working in JiMULCA?** Use its case workflow and the intended space/case. Local file edits do not change a remote case.
+- **Preparing or reviewing an EPD?** The demo prerelease assists with intake and evidence. A generated report is not certification, and review execution requires explicit delegation and model-cost authorization.
+- **Authoring data in Editor?** Separate workbook preparation, preflight, import, trial calculation and review submission. Each has different effects; submission may notify reviewers.
+- **Finding internal knowledge?** Nora reads published pages under your organization's access rules and preserves versioned citations.
+
+## Excel and other workbook tasks
+
+Spreadsheet capability is optional and task-specific. Ordinary Wiki searches, dataset queries or CLI case inspection do not require Excel tooling. Inspecting or editing a workbook may need a separately available, properly licensed spreadsheet capability in your host.
+
+Anthropic's [official XLSX skill](https://github.com/anthropics/skills/blob/main/skills/xlsx/SKILL.md) and [its license](https://github.com/anthropics/skills/blob/main/skills/xlsx/LICENSE.txt) are references. This repository does not copy, redistribute, fetch or automatically install it. A link is not proof that a skill is installed or that you have permission to redistribute it. See [spreadsheet task dependencies](docs/SPREADSHEETS.md).
+
+## Data, permissions and results
+
+Use only authorized inputs and the minimum fields needed for a service request. Keep credentials out of conversations and reports. Each CLI owns its authentication; do not borrow another application's tokens or treat plugin installation as business permission.
+
+Imports, model edits, calculations, review execution, submission and notifications require authorization for their actual target and effects. Read back writes, retain real receipts, and report incomplete or uncertain outcomes rather than blindly repeating an operation. CLI success is not proof of professional conformity, data suitability or certification. Details: [capabilities and safety boundaries](docs/CAPABILITIES.md).
+
+## Documentation and contributions
+
+- [Installation and CLI preparation](docs/INSTALLATION.md)
+- [Platform support and verification](docs/COMPATIBILITY.md)
+- [Capabilities, permissions and side effects](docs/CAPABILITIES.md)
+- [Excel / spreadsheet dependencies](docs/SPREADSHEETS.md)
+- [Catalog maintenance](CONTRIBUTING.md)
+
+Report reproducible installation or catalog issues through [GitHub Issues](https://github.com/HiQ-AI/plugins/issues). Include the plugin, OS/architecture, CLI version and a redacted error. Do not upload credentials, private materials or customer data.
 
 ## License
 
-Repository-authored metadata, agent definitions, guides and scripts are MIT licensed; see [LICENSE](LICENSE). This does not license third-party skills, downloaded CLI binaries, service data, trademarks or service access. CLI archives retain their publisher's terms. See [third-party boundaries](THIRD_PARTY_NOTICES.md).
+Repository-authored metadata, agent roles, guides and scripts are MIT licensed; see [LICENSE](LICENSE). CLI archives, third-party software, service data, database rights, trademarks and service access retain their own terms. See [third-party notices](THIRD_PARTY_NOTICES.md).

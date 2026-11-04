@@ -1,9 +1,7 @@
 # Native CLI requirements
 
-The root Cortex catalog pins archive URL, SHA256, executable path, version and platforms for each CLI. It is supply metadata, not an executable installer. Claude Code plugin installation loads plugin skills/agents but does not interpret these Cortex-specific supply fields.
+See [installation and CLI preparation](INSTALLATION.md) for all six plugins, exact download/integrity steps, expert prerelease versions, authentication and optional runtime requirements.
 
-Prepare the CLI separately using its publisher installation instructions or a compatible trusted Host. Check the actual executable version and help before business use. Do not infer CLI readiness from plugin installation or auto-run remote shell scripts. JiMU 0.2.1 supports macOS Apple Silicon only; do not substitute a binary for another OS.
+The [root catalog](../marketplace.json) pins CLI archives; it is not an installer. Native plugin installation does not provision a binary, login or business permissions. Preserve full sidecars and check actual executable versions before use.
 
-Editor operates authorized UPR business workflows; dataset lookup is read-only matching within service data entitlements; Nora reads published organization Wiki through its own login; JiMU uses its existing member-key mechanism and separately authorized case operations. No credentials, automatic login, generic token injection, MCP server or installation hooks are included.
-
-Workbook handling can require an additional host capability. See [SPREADSHEETS.md](SPREADSHEETS.md); a skill URL neither installs a capability nor grants third-party redistribution rights.
+For supported platforms and verified behavior see [compatibility](COMPATIBILITY.md). Workbook tasks may additionally need [spreadsheet capability](SPREADSHEETS.md), separate from the business CLI or EPD's locked parser.

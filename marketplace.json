@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "updated_at": "2026-11-04",
   "categories": [
     {
@@ -279,6 +279,132 @@
               "url": "https://download.hiq.earth/cli/jimu-lca/releases/v0.2.1/jimu-lca-darwin-arm64.tar.gz",
               "sha256": "ebaaf8f4a849bd513c155d330b0d86954944e7a987275187bcc9c4a8f2b9185b"
             }
+          }
+        }
+      }
+    },
+    {
+      "id": "cortex-lca-expert",
+      "type": "plugin",
+      "name": "openLCA 建模（预发布）",
+      "description": "用现有 openLCA 完成建模、检查、计算与研究交付。包装的是预发布 CLI 0.1.0-dev.14；0.1.0 仅为插件供给包装版本，不是正式 CLI 发版。",
+      "description_en": "Model, inspect, calculate and deliver studies with your installed openLCA. Wraps prerelease CLI 0.1.0-dev.14; 0.1.0 identifies only the plugin supply wrapper, not a stable CLI release.",
+      "version": "0.1.1",
+      "author": "HiQ",
+      "category": "lca",
+      "tags": [
+        "openlca",
+        "lca",
+        "modeling",
+        "preview"
+      ],
+      "path": "plugins/cortex-lca-expert",
+      "requirements": "预发布 CLI 0.1.0-dev.14 的完整原生包；供给包装版本 0.1.0 不代表正式发布。业务操作需要用户自己的官方 openLCA 安装及 CLI 设备登录、组织和 lca-modeling-expert 权益，普通建模无需 Pi。先运行版本/doctor 检查；未经授权不恢复、导入、修改数据库或计算。",
+      "requirements_en": "Complete native bundle of prerelease CLI 0.1.0-dev.14. Supply wrapper 0.1.0 is not a stable release. Business operations require your own official openLCA installation, CLI device login, organization and lca-modeling-expert entitlement; ordinary modeling needs no Pi. Inspect version/doctor first. Database restore, import, edits and calculations require authorization.",
+      "components": {
+        "skills": [
+          {
+            "id": "lca-modeling",
+            "description": "从工艺资料、记录、BOM 或已有模型开展 openLCA 研究时使用；沿用该预发布 CLI 的完整建模技能。"
+          }
+        ],
+        "agents": [
+          {
+            "id": "study-planner",
+            "description": "研究策划：明确目标、功能单位、系统边界、资料和数据选择，形成可执行的建模交接。"
+          },
+          {
+            "id": "lca-modeler",
+            "description": "模型构建：使用原生 CLI 推进已授权的实体、供应商链接和计算，保留模型与运行证据。"
+          },
+          {
+            "id": "result-interpreter",
+            "description": "结果解读：基于已有运行解释热点、零值和负值，比较同口径情景，不另行计算。"
+          }
+        ],
+        "cli": {
+          "name": "cortex-lca-expert",
+          "version": "0.1.0",
+          "executable": "upstream/bin/cortex-lca-expert",
+          "releases": {
+            "darwin-arm64": {
+              "url": "https://download.hiq.earth/cli/cortex-lca-expert/releases/v0.1.0/cortex-lca-expert-darwin-arm64.tar.gz",
+              "sha256": "e3c26f69120f6bafa03092a001c8fa1551f029438b48a137ceb5049879bf6642"
+            },
+            "linux-x64": {
+              "url": "https://download.hiq.earth/cli/cortex-lca-expert/releases/v0.1.0/cortex-lca-expert-linux-x64.tar.gz",
+              "sha256": "76d969d548072f599f3ab3e1dd8cdbfb8da00c26a56f3ba60dbf4bd0de6b6ed9"
+            },
+            "win32-x64": {
+              "url": "https://download.hiq.earth/cli/cortex-lca-expert/releases/v0.1.0/cortex-lca-expert-win32-x64.tar.gz",
+              "sha256": "f5f05518f32a56767c4eebe6fe8de611bc0d83b5227b62cf2d70bd167ebd7e3e"
+            }
+          },
+          "skillPaths": {
+            "lca-modeling": "upstream/app/assets/lca-modeling/SKILL.md"
+          }
+        }
+      }
+    },
+    {
+      "id": "cortex-epd",
+      "type": "plugin",
+      "name": "EPD 审核（预发布演示）",
+      "description": "预发布候选，仅演示，不代表正式晋级或产品验收。CLI 0.1.0-dev.14.candidate.39933331655.1.2，用于 EPD 预审与证据说明；HOLD 保持不变，0.1.0 仅是供给包装版本。",
+      "description_en": "Demo-only prerelease candidate, not promotion or product acceptance. CLI 0.1.0-dev.14.candidate.39933331655.1.2 supports EPD pre-audit and evidence review. HOLD remains unchanged; 0.1.0 is only the supply wrapper version.",
+      "version": "0.1.1",
+      "author": "HiQ",
+      "category": "lca",
+      "tags": [
+        "epd",
+        "audit",
+        "preview",
+        "demo"
+      ],
+      "path": "plugins/cortex-epd",
+      "requirements": "仅演示的预发布候选 0.1.0-dev.14.candidate.39933331655.1.2，promotable:false，正式晋级仍 HOLD。安装保留完整侧车，但不代表审核就绪。Docling 2.140.0-1 需另外校验并安装（约 0.8-0.9 GB 下载），审核还需 CLI 自主设备登录与 epd-audit 权益、明确委托及模型费用授权。本次安装不登录、不审核、不出具认证。",
+      "requirements_en": "Demo-only prerelease 0.1.0-dev.14.candidate.39933331655.1.2, promotable:false; formal promotion remains HOLD. Complete sidecars are preserved, but installation is not review readiness. Locked Docling 2.140.0-1 requires a separate verified installation (about 0.8-0.9 GB download). Reviews require the CLI device login and epd-audit entitlement, a confirmed delegation and model-cost authorization. Installation does not log in, review materials or issue certification.",
+      "components": {
+        "skills": [
+          {
+            "id": "epd-audit",
+            "description": "审查 EPD、LCA 项目报告或整改材料，以及查看本地审核环境和证据时使用；复用同一候选操作技能，不代替认证。"
+          }
+        ],
+        "agents": [
+          {
+            "id": "intake-analyst",
+            "description": "委托梳理：确认审查角色、目标计划、PCR、审查日期与材料角色，不自动建案或启动审核。"
+          },
+          {
+            "id": "audit-coordinator",
+            "description": "审核协调：按明确委托和费用授权推进 CLI 引导、问题答复与同案审核，不代替专业审核引擎。"
+          },
+          {
+            "id": "evidence-reader",
+            "description": "证据解读：只读追溯已有报告的发现、材料位置和整改缺口，不改结论、不关闭问题。"
+          }
+        ],
+        "cli": {
+          "name": "cortex-epd",
+          "version": "0.1.0",
+          "executable": "upstream/cortex-epd",
+          "releases": {
+            "darwin-arm64": {
+              "url": "https://download.hiq.earth/cli/cortex-epd/releases/v0.1.0/cortex-epd-darwin-arm64.tar.gz",
+              "sha256": "7986266214ab7122f196509aeb279505d758aaea1477258c4915bd29d4a2f82b"
+            },
+            "linux-x64": {
+              "url": "https://download.hiq.earth/cli/cortex-epd/releases/v0.1.0/cortex-epd-linux-x64.tar.gz",
+              "sha256": "7198a038bb14fd340d4dcd91e3c0b37daa80b8102b16f50df8cf746dc58979bd"
+            },
+            "win32-x64": {
+              "url": "https://download.hiq.earth/cli/cortex-epd/releases/v0.1.0/cortex-epd-win32-x64.tar.gz",
+              "sha256": "f3c9b49ad306fda88d8a58c1eb7d530282c5b53218416721059da1a96ff4a4b8"
+            }
+          },
+          "skillPaths": {
+            "epd-audit": "upstream/assets/skills/epd-audit/SKILL.md"
           }
         }
       }

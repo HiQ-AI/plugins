@@ -4,12 +4,12 @@ This repository publishes plugin instructions and pinned native CLI supply metad
 
 ## Update the catalog
 
-The root `marketplace.json` is the authority for plugin IDs, plugin versions, component inventory, CLI supply versions, archive URLs and digests. `.claude-plugin/marketplace.json` is its generated native Claude Code projection. Do not maintain the same catalog twice.
+The root `marketplace.json` is the authority for plugin IDs, plugin versions, component inventory, CLI supply versions, archive URLs and digests. `.claude-plugin/marketplace.json` and the marked plugin table in `README.md` are generated projections. Do not hand-edit the table or freeze a plugin count in the repository's title, About or positioning. Adding a plugin requires its catalog entry and own guide, not a rewrite of the repository overview.
 
 1. Edit the relevant plugin, manifest and root catalog together. Distinguish plugin version, archive wrapper version and actual executable version; expert previews must not be relabeled as stable.
 2. Check that every declared skill/agent exists and relative references work. Native plugin installations need a useful guide even when a compatible Cortex Host would replace it with a release-owned skill. Native plugin installation does not provision a CLI.
 3. Update user documentation when behavior, prerequisites, platforms, permissions or download availability change. Link the official spreadsheet skill and its license rather than copying it.
-4. Regenerate the native marketplace:
+4. Regenerate the native marketplace and README plugin index:
 
 ```bash
 npm run generate

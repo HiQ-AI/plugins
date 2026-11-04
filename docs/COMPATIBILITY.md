@@ -6,7 +6,6 @@
 | --- | --- | --- | --- | --- | --- |
 | Nora | Yes | Yes | Yes | Yes | Yes |
 | HiQ Editor | Yes | Yes | Yes | Yes | Yes |
-| Environmental Data | Yes | Yes | Yes | Yes | Yes |
 | JiMU | Yes | No | No | No | No |
 | openLCA modeling — prerelease | Yes | No | No | Yes | Yes |
 | EPD review — demo prerelease | Yes | No | No | Yes | Yes |
@@ -25,8 +24,8 @@ Checks distinguish package integrity from professional or business acceptance:
 
 | Check | Evidence / boundary |
 | --- | --- |
-| Catalog consistency | Local static check enforces the six declared plugin IDs, plugin/manifest versions, declared skill and agent paths, CLI pins and generated native index. GitHub-hosted CI runs the same check without credentials or business calls. |
-| Native manifests | `claude plugin validate` checks the generated marketplace and six plugin manifests. It does not execute a model-driven workflow, install CLI dependencies or prove business correctness. Optional listing icons are not supplied. |
+| Catalog consistency | Local static check enforces the declared plugin IDs, plugin/manifest versions, declared skill and agent paths, CLI pins and generated native index. GitHub-hosted CI runs the same check without credentials or business calls. |
+| Native manifests | `claude plugin validate` checks the generated marketplace and the plugin manifests. It does not execute a model-driven workflow, install CLI dependencies or prove business correctness. Optional listing icons are not supplied. |
 | New expert archive integrity | Both macOS arm64 archives were downloaded and their entire SHA256 digests matched the catalog. Full bundles were extracted for isolated discovery checks. |
 | Actual openLCA CLI | The macOS binary's `version` reports `0.1.0-dev.14`; `--help` exits successfully. No openLCA database/service was opened or modified in these checks. |
 | Actual EPD CLI | The macOS binary's `version -f json` reports `0.1.0-dev.14.candidate.39933331655.1.2`; `--help` exits successfully. No Docling installation, login, model call, review or report generation was performed. |

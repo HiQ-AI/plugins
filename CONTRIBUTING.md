@@ -35,3 +35,5 @@ Changes here do not automatically switch Desktop's production marketplace or rel
 ## Reporting issues
 
 Use [GitHub Issues](https://github.com/HiQ-AI/plugins/issues) with plugin ID, OS/architecture, actual CLI version, expected/observed behavior and a redacted error. Do not attach private materials, service tokens, login codes or full credential/environment dumps.
+
+Environmental Data is maintained in its [independent repository](https://github.com/HiQ-AI/environmental-data). Do not copy its source or add a duplicate product listing here; historical shared-marketplace installations have an [explicit migration path](docs/MIGRATIONS.md).

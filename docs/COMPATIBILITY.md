@@ -6,7 +6,7 @@
 | --- | --- | --- | --- | --- | --- |
 | Nora | Yes | Yes | Yes | Yes | Yes |
 | HiQ Editor | Yes | Yes | Yes | Yes | Yes |
-| Dataset lookup | Yes | Yes | Yes | Yes | Yes |
+| Environmental Data | Yes | Yes | Yes | Yes | Yes |
 | JiMU | Yes | No | No | No | No |
 | openLCA modeling — prerelease | Yes | No | No | Yes | Yes |
 | EPD review — demo prerelease | Yes | No | No | Yes | Yes |

@@ -30,6 +30,7 @@ const native = {
     const manifest = JSON.parse(read(`${plugin.path}/.claude-plugin/plugin.json`));
     assert.equal(manifest.name, plugin.id);
     assert.equal(manifest.version, plugin.version);
+    if (manifest.displayName !== undefined) assert.equal(manifest.displayName, plugin.name);
     read(`${plugin.path}/README.md`);
     for (const skill of plugin.components.skills ?? []) {
       checkComponent(plugin, `skills/${skill.id}/SKILL.md`);
@@ -47,6 +48,7 @@ const native = {
     }
     return {
       name: plugin.id,
+      ...(manifest.displayName ? { displayName: manifest.displayName } : {}),
       source: `./${plugin.path}`,
       description: manifest.description,
       version: plugin.version,
@@ -62,7 +64,7 @@ const overview = [
   '<!-- catalog:start -->',
   '| Plugin | Description |',
   '| --- | --- |',
-  ...native.plugins.map(plugin => `| [${plugin.name}](plugins/${plugin.name}/README.md) | ${escapeCell(plugin.description)} |`),
+  ...native.plugins.map(plugin => `| [${escapeCell(plugin.displayName ?? plugin.name)}](plugins/${plugin.name}/README.md) | ${escapeCell(plugin.description)} |`),
   '<!-- catalog:end -->',
 ].join('\n');
 const generatedReadme = readme.replace(marker, () => overview);

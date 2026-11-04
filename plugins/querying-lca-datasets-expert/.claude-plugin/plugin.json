@@ -1,10 +1,11 @@
 {
   "name": "querying-lca-datasets-expert",
-  "version": "0.5.1",
-  "description": "Query LCA process datasets and match inventory requirements using the self-contained querying-lca-datasets CLI, with provenance and representativeness review.",
+  "version": "0.5.2",
+  "description": "Environmental Data: search and match environmental process data across published database sources, preserving source, version, system model, units and applicability evidence. Access depends on source and account entitlements.",
   "repository": "https://github.com/HiQ-AI/plugins",
   "license": "MIT",
   "author": {
     "name": "HiQ"
-  }
+  },
+  "displayName": "Environmental Data"
 }

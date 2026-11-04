@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "updated_at": "2026-11-04",
   "categories": [
     {
@@ -165,10 +165,10 @@
     {
       "id": "querying-lca-datasets-expert",
       "type": "plugin",
-      "name": "Querying LCA Datasets",
-      "description": "使用自包含 CLI 检索 LCA 过程数据集，将物料、能源、运输/处理服务等清单需求进行匹配，保留来源坐标并复核时间、地域、技术代表性与参考产品/单位一致性；不修改模型或执行 EPD 审核。",
-      "description_en": "Query LCA process datasets and match material, energy, transport and treatment inventory requirements through the self-contained CLI. Preserve provenance and review temporal, geographical and technological representativeness and reference product/unit consistency; no model edits or EPD audit.",
-      "version": "0.5.1",
+      "name": "Environmental Data",
+      "description": "Environmental Data：跨已发布数据库检索与匹配环境过程数据，保留来源、版本、系统模型、单位及适用性证据；可访问数据取决于来源和账户权益。",
+      "description_en": "Environmental Data: search and match environmental process data across published database sources, preserving source, version, system model, units and applicability evidence. Access depends on source and account entitlements.",
+      "version": "0.5.2",
       "author": "HiQ",
       "category": "lca",
       "tags": [

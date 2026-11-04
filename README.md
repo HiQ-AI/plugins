@@ -13,7 +13,7 @@ Find background datasets, prepare an openLCA study, work with product carbon-foo
 | --- | --- |
 | [cortex-org-wiki](plugins/cortex-org-wiki/README.md) | Search Nora's published organization Wiki and read versioned pages with source citations. Use the CLI's own Cortex login and the intended organization. |
 | [hiq-editor](plugins/hiq-editor/README.md) | HiQ Editor toolkit: the native CLI release, its canonical UPR workflow skill and evidence-based authoring/review agents. |
-| [querying-lca-datasets-expert](plugins/querying-lca-datasets-expert/README.md) | Query LCA process datasets and match inventory requirements using the self-contained querying-lca-datasets CLI, with provenance and representativeness review. |
+| [Environmental Data](plugins/querying-lca-datasets-expert/README.md) | Environmental Data: search and match environmental process data across published database sources, preserving source, version, system model, units and applicability evidence. Access depends on source and account entitlements. |
 | [jimu-lca](plugins/jimu-lca/README.md) | Inspect JiMULCA product carbon-footprint cases and run authorized inventory, binding and calculation operations with the user's own member credential. |
 | [cortex-lca-expert](plugins/cortex-lca-expert/README.md) | Preview wrapper for cortex-lca-expert 0.1.0-dev.14: build, inspect and calculate openLCA models using the user's installed application and Cortex expert authorization. Wrapper version 0.1.0 is not a stable CLI release. |
 | [cortex-epd](plugins/cortex-epd/README.md) | Demo-only prerelease wrapper for cortex-epd 0.1.0-dev.14.candidate.39933331655.1.2. EPD pre-audit instructions come from that complete candidate. HOLD remains in effect; this is not promotion, product acceptance or certification. |
@@ -51,7 +51,7 @@ See [compatibility and verification](docs/COMPATIBILITY.md) for platform coverag
 
 ## Use the right tool for the task
 
-- **Looking for a background factor or dataset?** Start with dataset lookup. A match needs compatible function, units, geography, technology and period; a search hit alone does not establish suitability.
+- **Looking for environmental process data?** Start with [Environmental Data](plugins/querying-lca-datasets-expert/README.md) for multi-source discovery and matching. A match needs compatible function, units, geography, technology and period; a search hit alone does not establish suitability.
 - **Building an LCA study?** Use the prerelease openLCA plugin with your own official openLCA installation and appropriately licensed databases. Dataset lookup does not calculate a model.
 - **Working in JiMULCA?** Use its case workflow and the intended space/case. Local file edits do not change a remote case.
 - **Preparing or reviewing an EPD?** The demo prerelease assists with intake and evidence. A generated report is not certification, and review execution requires explicit delegation and model-cost authorization.

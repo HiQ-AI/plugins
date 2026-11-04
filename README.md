@@ -15,7 +15,7 @@ Prepare an openLCA study, work with product carbon-footprint cases, review EPD e
 | [hiq-editor](plugins/hiq-editor/README.md) | HiQ Editor toolkit: the native CLI release, its canonical UPR workflow skill and evidence-based authoring/review agents. |
 | [jimu-lca](plugins/jimu-lca/README.md) | Inspect JiMULCA product carbon-footprint cases and run authorized inventory, binding and calculation operations with the user's own member credential. |
 | [cortex-lca-expert](plugins/cortex-lca-expert/README.md) | Preview wrapper for cortex-lca-expert 0.1.0-dev.14: build, inspect and calculate openLCA models using the user's installed application and Cortex expert authorization. Wrapper version 0.1.0 is not a stable CLI release. |
-| [cortex-epd](plugins/cortex-epd/README.md) | EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.21.candidate.41755813555.1.2. Stability and professional acceptance remain incomplete; not certification. |
+| [cortex-epd](plugins/cortex-epd/README.md) | EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.22.candidate.41820743400.1.2. Stability and professional acceptance remain incomplete; not certification. |
 <!-- catalog:end -->
 
 openLCA still uses a `0.1.0` supply wrapper around its prerelease CLI. EPD now points directly to native incremental prerelease **0.1.0-dev.21.candidate.41755813555.1.2**, with no wrapper-version substitution. See [EPD release and Host compatibility](docs/EPD_RELEASE.md). Neither expert is a stable release or proof of completed professional acceptance.

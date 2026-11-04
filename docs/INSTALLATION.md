@@ -37,7 +37,7 @@ For manual preparation:
 
 Publisher entry points are available for [Editor](https://download.hiq.earth/cli/hiq-editor/install.md), [Nora](https://download.hiq.earth/cli/cortex-org-wiki/install.sh) and [JiMU](https://download.hiq.earth/cli/jimu-lca/install.sh). Inspect the instructions and platform/version before running an installer. A script link is not a recommendation to pipe an uninspected response into a shell. For both expert previews, use the pinned archives; do not infer a current installer URL from the CLI name.
 
-EPD public [installation instructions](https://download.hiq.earth/experts/cortex-epd/install.md) and versioned manifests are now available for **0.1.0-dev.21.candidate.41755813555.1.2**. The Cortex entry requires explicit `expert-release` Host support; an older wrapper-only Host cannot consume it. See [the release boundary](EPD_RELEASE.md).
+EPD public [installation instructions](https://download.hiq.earth/experts/cortex-epd/install.md) and versioned manifests are now available for **0.1.0-dev.22.candidate.41820743400.1.2**. The Cortex entry requires explicit `expert-release` Host support; an older wrapper-only Host cannot consume it. See [the release boundary](EPD_RELEASE.md).
 
 ## 3. Confirm version and access
 

@@ -40,10 +40,14 @@ const native = {
     }
     const cli = plugin.components.cli;
     assert.ok(cli.name && cli.version && cli.executable);
+    assert.ok(cli.format === undefined || cli.format === 'expert-release', 'Unknown CLI archive format');
     assert.ok(Object.keys(cli.releases).length);
     for (const [platform, release] of Object.entries(cli.releases)) {
       assert.match(platform, /^(darwin|linux|win32)-(arm64|x64)$/);
-      assert.equal(new URL(release.url).origin, 'https://download.hiq.earth');
+      const url = new URL(release.url);
+      assert.equal(url.origin, 'https://download.hiq.earth');
+      const prefix = cli.format === 'expert-release' ? `/experts/${cli.name}/v${cli.version}/` : '/cli/';
+      assert.ok(url.pathname.startsWith(prefix) && url.pathname.endsWith('.tar.gz'));
       assert.match(release.sha256, /^[a-f0-9]{64}$/);
     }
     return {

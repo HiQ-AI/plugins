@@ -8,7 +8,7 @@
 | HiQ Editor | Yes | Yes | Yes | Yes | Yes |
 | JiMU | Yes | No | No | No | No |
 | openLCA modeling — prerelease | Yes | No | No | Yes | Yes |
-| EPD review — demo prerelease | Yes | No | No | Yes | Yes |
+| EPD review — incremental prerelease | Yes | No | No | Yes | Yes |
 
 “Yes” means a pinned archive exists in [the catalog](../marketplace.json), not that every workflow has been accepted on that platform. JiMU has no Windows fallback in this catalog. Preserve all archive sidecars on supported platforms.
 
@@ -28,13 +28,13 @@ Checks distinguish package integrity from professional or business acceptance:
 | Native manifests | `claude plugin validate` checks the generated marketplace and the plugin manifests. It does not execute a model-driven workflow, install CLI dependencies or prove business correctness. Optional listing icons are not supplied. |
 | New expert archive integrity | Both macOS arm64 archives were downloaded and their entire SHA256 digests matched the catalog. Full bundles were extracted for isolated discovery checks. |
 | Actual openLCA CLI | The macOS binary's `version` reports `0.1.0-dev.14`; `--help` exits successfully. No openLCA database/service was opened or modified in these checks. |
-| Actual EPD CLI | The macOS binary's `version -f json` reports `0.1.0-dev.14.candidate.39933331655.1.2`; `--help` exits successfully. No Docling installation, login, model call, review or report generation was performed. |
-| Download availability | Pinned expert archives have accessible CDN entries. Newer EPD `experts/cortex-epd/latest.json` and `install.sh` returned HTTP 403; they are not advertised as installation paths. |
+| Actual EPD CLI | The macOS binary's `version -f json` reports `0.1.0-dev.21.candidate.41755813555.1.2` / Bun1.4.4. The production provisioner was exercised with verified public archive bytes replayed locally; complete operation skill and references materialized, pinned SDK discovery and actual strict macOS codesign passed. No Docling installation, login, model call, review or report generation was performed. |
+| Download availability | Pinned expert archives have accessible CDN entries. The new EPD native release and installation instructions are publicly available; exact URLs/digests are pinned, not inferred from an old wrapper. |
 
 The macOS discovery checks used an isolated HOME and no business credentials. Windows/Linux archive entries do not imply a new Windows/Linux execution test in this repository update. The four existing CLI pins are unchanged; this update does not re-accept their business workflows.
 
 ## Prerelease limits
 
-openLCA and EPD archives both use a `0.1.0` supply wrapper. That value is not their executable version and does not turn either into a stable release. EPD's candidate is demo-only, `promotable:false` in its release evidence, and remains on hold for formal promotion. A newer source revision or development version is not proof that a public archive was released.
+openLCA uses a `0.1.0` supply wrapper around its prerelease executable. EPD now directly uses native **0.1.0-dev.21.candidate.41755813555.1.2**, selected by `format: expert-release`. This requires an updated Cortex Host; older wrapper-only Hosts are incompatible. Production Desktop routing and releases are unchanged. See [EPD release details](EPD_RELEASE.md).
 
-Do not use installation, manifest validation, an HTTP 200, CLI exit zero or a rendered report as evidence of product acceptance, ISO conformity, a signed verification opinion or certification.
+EPD is a published incremental prerelease. Original candidate `promotable:false` evidence is retained; stability, normative coverage, holdout and institution-approved template acceptance remain incomplete. Do not equate publication, installation, CLI exit zero or a report with professional acceptance or certification.

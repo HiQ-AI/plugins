@@ -8,14 +8,16 @@ Find background datasets, prepare an openLCA study, work with product carbon-foo
 
 ## Choose a plugin
 
-| Plugin | What you can do | Plugin version | Native CLI / status |
-| --- | --- | --- | --- |
-| [Nora organization Wiki](plugins/cortex-org-wiki/README.md) | Find published organization knowledge, read exact page versions and cite sources | 0.1.6 | `cortex-org-wiki` 0.1.5 |
-| [HiQ Editor](plugins/hiq-editor/README.md) | Prepare UPR workbooks, inspect preflight results, import and trial-calculate with authorization | 0.12.0 | `hiq-editor` 0.12.0 |
-| [LCA dataset lookup & matching](plugins/querying-lca-datasets-expert/README.md) | Find background process datasets and match inventory items with provenance and unit evidence | 0.5.1 | `querying-lca-datasets` 0.5.1 |
-| [JiMULCA](plugins/jimu-lca/README.md) | Inspect or revise product carbon-footprint cases, bind backgrounds and calculate when authorized | 0.2.2 | `jimu-lca` 0.2.1; macOS Apple Silicon only |
-| [openLCA modeling — prerelease](plugins/cortex-lca-expert/README.md) | Turn process records or an existing model into an openLCA study, calculation and evidence-backed interpretation | 0.1.1 | `cortex-lca-expert` **0.1.0-dev.14** |
-| [EPD review — demo prerelease](plugins/cortex-epd/README.md) | Prepare an EPD review engagement and explain CLI-produced findings and evidence | 0.1.1 | `cortex-epd` **0.1.0-dev.14.candidate.39933331655.1.2**; demo-only, not approved for formal promotion |
+<!-- catalog:start -->
+| Plugin | Description |
+| --- | --- |
+| [cortex-org-wiki](plugins/cortex-org-wiki/README.md) | Search Nora's published organization Wiki and read versioned pages with source citations. Use the CLI's own Cortex login and the intended organization. |
+| [hiq-editor](plugins/hiq-editor/README.md) | HiQ Editor toolkit: the native CLI release, its canonical UPR workflow skill and evidence-based authoring/review agents. |
+| [querying-lca-datasets-expert](plugins/querying-lca-datasets-expert/README.md) | Query LCA process datasets and match inventory requirements using the self-contained querying-lca-datasets CLI, with provenance and representativeness review. |
+| [jimu-lca](plugins/jimu-lca/README.md) | Inspect JiMULCA product carbon-footprint cases and run authorized inventory, binding and calculation operations with the user's own member credential. |
+| [cortex-lca-expert](plugins/cortex-lca-expert/README.md) | Preview wrapper for cortex-lca-expert 0.1.0-dev.14: build, inspect and calculate openLCA models using the user's installed application and Cortex expert authorization. Wrapper version 0.1.0 is not a stable CLI release. |
+| [cortex-epd](plugins/cortex-epd/README.md) | Demo-only prerelease wrapper for cortex-epd 0.1.0-dev.14.candidate.39933331655.1.2. EPD pre-audit instructions come from that complete candidate. HOLD remains in effect; this is not promotion, product acceptance or certification. |
+<!-- catalog:end -->
 
 For both expert plugins, `0.1.0` in the download path and Cortex supply metadata is the **archive wrapper version**, not a stable CLI version. The executable versions are shown above. EPD's newer development source does not make a newer downloadable release available. This catalog does not supply EPD dev.21.
 

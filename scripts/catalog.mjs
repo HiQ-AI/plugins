@@ -15,15 +15,17 @@ const checkComponent = (plugin, relative) => {
   }
 };
 const catalog = JSON.parse(read('marketplace.json'));
-const expected = ['cortex-epd', 'cortex-lca-expert', 'cortex-org-wiki', 'hiq-editor', 'jimu-lca', 'querying-lca-datasets-expert'];
-assert.deepEqual(catalog.plugins.map(p => p.id).sort(), expected);
-assert.deepEqual(readdirSync(path.join(root, 'plugins')).sort(), expected);
+const ids = catalog.plugins.map(plugin => plugin.id);
+assert.ok(ids.length, 'The catalog must contain plugins');
+assert.equal(new Set(ids).size, ids.length, 'Plugin IDs must be unique');
+assert.deepEqual(readdirSync(path.join(root, 'plugins')).sort(), [...ids].sort());
 const native = {
   name: 'hiq-plugins',
   owner: { name: 'HiQ' },
   metadata: { description: 'HiQ service plugins with native CLI operating guides.' },
   plugins: catalog.plugins.map(plugin => {
     assert.equal(plugin.type, 'plugin');
+    assert.match(plugin.id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     assert.equal(plugin.path, `plugins/${plugin.id}`);
     const manifest = JSON.parse(read(`${plugin.path}/.claude-plugin/plugin.json`));
     assert.equal(manifest.name, plugin.id);
@@ -52,10 +54,24 @@ const native = {
   }),
 };
 const generated = `${JSON.stringify(native, null, 2)}\n`;
+const marker = /<!-- catalog:start -->[\s\S]*?<!-- catalog:end -->/;
+const readme = read('README.md');
+assert.match(readme, marker, 'README catalog markers are required');
+const escapeCell = value => value.replaceAll('|', '\\|').replaceAll('\n', ' ');
+const overview = [
+  '<!-- catalog:start -->',
+  '| Plugin | Description |',
+  '| --- | --- |',
+  ...native.plugins.map(plugin => `| [${plugin.name}](plugins/${plugin.name}/README.md) | ${escapeCell(plugin.description)} |`),
+  '<!-- catalog:end -->',
+].join('\n');
+const generatedReadme = readme.replace(marker, () => overview);
 if (process.argv.includes('--write')) {
   mkdirSync(path.join(root, '.claude-plugin'), { recursive: true });
   writeFileSync(path.join(root, '.claude-plugin/marketplace.json'), generated);
+  writeFileSync(path.join(root, 'README.md'), generatedReadme);
 } else {
   assert.equal(read('.claude-plugin/marketplace.json'), generated, 'Run npm run generate');
+  assert.equal(readme, generatedReadme, 'Run npm run generate to update the README catalog');
 }
 console.log(`Validated ${native.plugins.length} plugins, component paths, CLI pins and native index.`);

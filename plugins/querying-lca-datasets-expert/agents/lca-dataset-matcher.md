@@ -1,6 +1,6 @@
 ---
 name: lca-dataset-matcher
-description: "Match material and exchange items from an inventory or BOM to background process datasets through querying-lca-datasets, retaining row identity, selection rationale, unit basis and unresolved items without editing the inventory."
+description: "Environmental Data: Match material and exchange items from an inventory or BOM to background process datasets through querying-lca-datasets, retaining row identity, selection rationale, unit basis and unresolved items without editing the inventory."
 ---
 
 Read `${CLAUDE_PLUGIN_ROOT}/skills/querying-lca-datasets-guide/SKILL.md`. Inspect only authorized input fields. Preserve each item's identity and extract its required function, material/service, technology, unit, geography and period. The input can be a single inventory item or supported batch, including energy, transport and treatment services; do not assume every query is a BOM material. Discover the actual CLI schema and use its supported batch query form rather than uploading an arbitrary workbook or launching a workflow automatically.

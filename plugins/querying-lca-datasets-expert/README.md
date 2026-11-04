@@ -1,10 +1,18 @@
-# LCA dataset lookup & matching
+# Environmental Data
 
-For LCA practitioners selecting background process datasets for materials, energy, transport, treatment and other inventory requirements.
+Search and match environmental process data across published database sources, with traceable provenance and explicit applicability limits.
+
+For practitioners selecting data for environmental assessments, life-cycle inventories and product carbon-footprint studies. The current workflow covers LCA background process datasets for materials, energy, transport, treatment and other inventory requirements; it is not a promise that every environmental database or data type is connected.
 
 ## What it does
 
-Search datasets, inspect source/version/model and reference units, verify identifiers and propose justified matches or unresolved needs while preserving input-row identity.
+Search published sources, inspect source/version/system-model coordinates and reference units, verify identifiers and propose justified matches or unresolved needs while preserving input-row identity. Retain geography, time and technology evidence rather than treating a search hit as a suitable factor.
+
+## Published sources and current scope
+
+The backing service's public directory currently advertises sources including HiQLCD, Ecoinvent, CALCD, CarbonMinds, Agri-footprint, EF, AusLCI, BAFU, ELCD, USLCI and Worldsteel. See the [dated source inventory](SOURCES.md) for the full observed list, versions, system models and coverage limits, and follow its live directory link for current metadata.
+
+Catalog visibility is not access to numerical data. Commercial-source values require the relevant account entitlements; a service “free” flag does not grant redistribution rights. LCIA coverage varies: the listed Agri-footprint and Recycled Plastics versions do not advertise LCIA results. A new product name does not connect additional databases; unlisted sources are not claimed as supported.
 
 ## Install the plugin
 
@@ -22,7 +30,8 @@ This loads instructions and agent roles, not a CLI, credentials or business data
 
 ## Native CLI and requirements
 
-- Plugin version: **0.5.1**.
+- Public product name: **Environmental Data**. The install ID remains `querying-lca-datasets-expert` so existing installations and upgrades keep their identity.
+- Plugin version: **0.5.2** (branding and documentation update).
 - CLI executable: `querying-lca-datasets`. CLI version: **0.5.1**.
 - Catalog platforms: `darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-x64`. Missing platforms are unsupported by this catalog.
 - Exact archive URLs, SHA256 and executable/skill paths: [release catalog](https://github.com/HiQ-AI/plugins/blob/main/marketplace.json).

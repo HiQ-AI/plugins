@@ -36,7 +36,7 @@ For manual preparation:
 5. Check version and help using that exact release. The expert archives use supply wrapper `0.1.0`, but their executables report prerelease versions. A plugin version, archive directory name or successful download does not prove runtime readiness.
 6. If using a release-owned operating skill in another host, use that CLI's documented skill installation mechanism. Do not overwrite an existing customized skill, register all hosts or change global permissions without authorization.
 
-Publisher entry points are available for [Editor](https://download.hiq.earth/cli/hiq-editor/install.md), [Nora](https://download.hiq.earth/cli/cortex-org-wiki/install.sh) and [JiMU](https://download.hiq.earth/cli/jimu-lca/install.sh). Inspect the instructions and platform/version before running an installer. A script link is not a recommendation to pipe an uninspected response into a shell. For dataset lookup and both expert previews, use the pinned archives; do not infer a current installer URL from the CLI name.
+Publisher entry points are available for [Editor](https://download.hiq.earth/cli/hiq-editor/install.md), [Nora](https://download.hiq.earth/cli/cortex-org-wiki/install.sh) and [JiMU](https://download.hiq.earth/cli/jimu-lca/install.sh). Inspect the instructions and platform/version before running an installer. A script link is not a recommendation to pipe an uninspected response into a shell. For Environmental Data and both expert previews, use the pinned archives; do not infer a current installer URL from the CLI name.
 
 The proposed newer EPD `experts/cortex-epd/latest.json` and `install.sh` endpoints returned HTTP 403 during verification on 2026-11-04. They are not usable public installation paths in this guide. The catalog's older candidate archives are separate, accessible artifacts; they are not a release of dev.21.
 
@@ -48,7 +48,7 @@ Run the relevant discovery command only after trusting and preparing the release
 | --- | --- | --- |
 | Nora | `cortex-org-wiki --version`, `--help` | CLI device login and intended organization membership; published Wiki pages only |
 | Editor | `hiq-editor version --json`, `--help` | CLI login, correct account/organization/datasource and business permissions |
-| Dataset lookup | `querying-lca-datasets version`, `--help` | CLI device/QR login or controlled API-key configuration; dataset access depends on entitlements |
+| Environmental Data | `querying-lca-datasets version`, `--help` | CLI device/QR login or controlled API-key configuration; dataset access depends on entitlements |
 | JiMU | `jimu-lca --version`, `--help` | macOS arm64; user's controlled member-key configuration; this archive does not include the addon required by native login |
 | openLCA modeling | `cortex-lca-expert version`, `--help`, `status --offline` | Official openLCA installation, selected workspace/database, CLI device login and `lca-modeling-expert` entitlement; ordinary modeling does not require Pi/model login |
 | EPD demo | `cortex-epd version -f json`, `--help`, `doctor --offline -f json` | Matching candidate's full sidecars, separately installed locked Docling 2.140.0-1 (approximately 0.8–0.9 GB download), CLI device login and `epd-audit` entitlement for reviews |

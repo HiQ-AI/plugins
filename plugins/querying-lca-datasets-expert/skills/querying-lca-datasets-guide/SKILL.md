@@ -1,11 +1,15 @@
 ---
 name: querying-lca-datasets-guide
-description: "Search LCA background databases and match materials, energy, transport, treatment or other inventory items to process datasets using querying-lca-datasets. Use for emission-factor lookup, individual dataset queries and inventory/BOM matching, preserving source/version/model, reference product and unit, geography, time and technology evidence."
+description: "Environmental Data: search and match environmental process data across published database sources using querying-lca-datasets. Use for source-aware dataset discovery, retrieved emission-factor lookup and inventory matching, preserving source/version/system model, reference product/unit, geography, time, technology and access limits."
 ---
 
-# Querying LCA Datasets
+# Environmental Data
 
-Use the installed `querying-lca-datasets` executable. Match inventory items to **process datasets** in LCA background databases such as ecoinvent or CLCD when actually available through the service. A database, a process dataset, its reference product and its numerical LCIA result are distinct things. Do not infer a database's availability from an example or invent a dataset or factor from memory.
+The public product name is Environmental Data. The stable plugin ID `querying-lca-datasets-expert`, this skill ID and the `querying-lca-datasets` CLI command remain unchanged; a branding update does not require reinstalling under a new identity or replacing authentication.
+
+Use the installed `querying-lca-datasets` executable to search and match **environmental process datasets** across published sources. Current scope is LCA background data for material, energy, transport, treatment and other inventory requirements. A database, a process dataset, its reference product and its numerical LCIA result are distinct things. Do not infer availability from a product name or invent a dataset/factor from memory.
+
+Read the plugin's [source inventory and limits](../../SOURCES.md). It records dated metadata from the live public source directory, including HiQLCD, Ecoinvent, CALCD and other advertised sources. It is not a per-account access inventory or a permanent allowlist. Discover current sources, versions and models using the CLI's available tools/help and service metadata; a directory entry does not grant numerical-data access. Some advertised sources lack LCIA results, and an unlisted database is not integrated just because the product has a broad name. Retain source/version/model and applicability evidence; do not silently substitute a different source.
 
 Inputs are not limited to a BOM: a material description, process requirement, individual inventory exchange, energy or transport service, or batch inventory rows can all be search queries. Discover what each actual command accepts. This skill is the CLI operating guide, not a local catalog or a modeling/calculation engine. Do not download SQLite catalogs, run retired Querying scripts, install another client, configure an additional Host MCP server or inject Desktop JWT. The CLI's own service protocol is internal to the CLI; it does not require a separate Host MCP connection. Search runs remotely within the user's data entitlements.
 
@@ -21,7 +25,7 @@ querying-lca-datasets describe lookup-datasets
 
 `doctor` reports credential source and connectivity, not the secret; version 0.5.1 emits human text even with `--json`. Installation or a version check does not establish data access. Runtime tools and parameters come from `list --json` and `describe <command>`; do not copy a server schema into this skill or invent flags. Static commands such as `search-datasets` use `<command> --help`, not `describe`.
 
-The CLI owns authentication. User-driven `querying-lca-datasets login` performs device/QR authorization. A securely configured `QUERYING_LCA_DATASETS_API_KEY` takes precedence over this CLI's stored login. The renamed CLI has a new login-storage identity and does not import old client credentials; the user must sign in again. Never inspect credential files, print environment secrets, copy a token from another app or ask for a secret in chat. Do not initiate login/logout or change identity without authorization. Keep the default service endpoint rather than redirecting authenticated requests.
+The CLI owns authentication. User-driven `querying-lca-datasets login` performs device/QR authorization. A securely configured `QUERYING_LCA_DATASETS_API_KEY` takes precedence over this CLI's stored login. This product-name update does not change the executable, login-storage identity or credentials; continue using the CLI's existing authorized login. Never inspect credential files, print environment secrets, copy a token from another app or ask for a secret in chat. Do not initiate login/logout or change identity without authorization. Keep the default service endpoint rather than redirecting authenticated requests.
 
 ## Search Background Process Datasets
 

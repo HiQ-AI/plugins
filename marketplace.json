@@ -1,5 +1,5 @@
 {
-  "version": "1.1.1",
+  "version": "1.2.0",
   "updated_at": "2026-11-04",
   "categories": [
     {
@@ -161,77 +161,6 @@
       },
       "recommended_prompt": "帮我预检这份 UPR 工作簿。先用已安装的 HiQ Editor CLI 确认当前账号、组织和可选数据源，说明发现的阻断与下一步；这次只做预检，不导入、试算或提交复核。",
       "recommended_prompt_en": "Preflight this UPR workbook. First use the installed HiQ Editor CLI to verify the current account, organization and available datasources, then explain blockers and next steps. This request authorizes preflight only, not import, trial calculation or review submission."
-    },
-    {
-      "id": "querying-lca-datasets-expert",
-      "type": "plugin",
-      "name": "Environmental Data",
-      "description": "Environmental Data：跨已发布数据库检索与匹配环境过程数据，保留来源、版本、系统模型、单位及适用性证据；可访问数据取决于来源和账户权益。",
-      "description_en": "Environmental Data: search and match environmental process data across published database sources, preserving source, version, system model, units and applicability evidence. Access depends on source and account entitlements.",
-      "version": "0.5.2",
-      "author": "HiQ",
-      "category": "lca",
-      "tags": [
-        "lca",
-        "datasets",
-        "search",
-        "bom",
-        "matching"
-      ],
-      "path": "plugins/querying-lca-datasets-expert",
-      "requirements": "原生 CLI 0.5.1，五平台自包含二进制，无需额外运行环境；只从自有 CDN 取得带 manifest 的原生归档。使用 querying-lca-datasets 自身登录或受控的 QUERYING_LCA_DATASETS_API_KEY，不注入 Desktop JWT，不读取旧客户端登录存储。安装不授予商业数值访问权益。本插件只读检索、匹配、查询与核验，不导入、绑定、计算、审核或通知。Chat 独立 querying-lca-datasets 技能原样保留；本插件使用不同的 expert/guide ID，不能据此声称 Desktop 旧 catalog 下载已退役。",
-      "requirements_en": "Native CLI 0.5.1, five self-contained platform binaries with no external runtime, supplied only from the owned CDN in manifest-bearing archives. Uses its own login or a controlled QUERYING_LCA_DATASETS_API_KEY, never Desktop JWT or an old client login store. Installation grants no commercial numerical-data rights. Read-only search, inventory matching, lookup and verification: no import, binding, calculation, audit or notifications. The standalone Chat querying-lca-datasets skill is unchanged; distinct expert/guide IDs coexist without claiming Desktop legacy catalog retirement.",
-      "components": {
-        "skills": [
-          {
-            "id": "querying-lca-datasets-guide",
-            "description": "指导 Agent 使用真实 CLI 命令、自主鉴权及证据回执，检索并匹配过程数据集；按任务选择预设查找、清单匹配与代表性复核角色，不自动组成工作流。"
-          }
-        ],
-        "agents": [
-          {
-            "id": "lca-dataset-searcher",
-            "description": "过程数据集查找：按功能、来源坐标、参考产品/单位、地域、时间及技术约束寻找可追溯候选；不限 BOM。"
-          },
-          {
-            "id": "lca-dataset-matcher",
-            "description": "清单匹配：将物料、能源、运输/处理服务等单项或批量需求匹配到过程数据集，保留行身份、依据、代理与未解决项，不修改原清单。"
-          },
-          {
-            "id": "lca-dataset-reviewer",
-            "description": "代表性复核：只读检查时间、地域、技术适用性、参考产品/单位、系统模型与证据质量，不把有效 ID 或相似度当成代表性结论。"
-          }
-        ],
-        "cli": {
-          "name": "querying-lca-datasets",
-          "version": "0.5.1",
-          "executable": "bin/querying-lca-datasets",
-          "releases": {
-            "darwin-arm64": {
-              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-darwin-arm64.tar.gz",
-              "sha256": "fa6b0cf8d4da04e5ca349ad4e58c9748b804579d9a4866b3674d6f8de82574da"
-            },
-            "darwin-x64": {
-              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-darwin-x64.tar.gz",
-              "sha256": "5ad0e689bd25e75ebdcaf9fdbb96c6fb6e33d0bafce5d20523a751024e14cc56"
-            },
-            "linux-arm64": {
-              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-linux-arm64.tar.gz",
-              "sha256": "e5c56f3786243cec244d8e9d27db40eeabad4e27b353cc9d466d0b5a7f5ab866"
-            },
-            "linux-x64": {
-              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-linux-x64.tar.gz",
-              "sha256": "9060f20a3744cf2c4e21d578fa70030c74b6b4c2818ffe69a554a5fef718a393"
-            },
-            "win32-x64": {
-              "url": "https://download.hiq.earth/cli/querying-lca-datasets/releases/v0.5.1/querying-lca-datasets-win32-x64.tar.gz",
-              "sha256": "3af22e08c8f1bb70c106e65a89a8c8cd10df2054424240f297fdc10b1fae222c"
-            }
-          }
-        }
-      },
-      "recommended_prompt": "用 Querying LCA Datasets 为中国生产的 304 不锈钢寻找参考单位 kg 的过程数据集。先检查 CLI 与访问状态；列出来源、版本、模型、参考产品/单位、地域和可用时间/技术证据，说明代理及代表性缺口。有权限时读取真实 GWP，不估算，不修改模型或执行 EPD 审核。",
-      "recommended_prompt_en": "Use Querying LCA Datasets to find process datasets for 304 stainless steel produced in China, with kg as reference unit. Check CLI access; report source/version/model, reference product/unit, geography and available temporal/technology evidence. Explain proxies and representativeness gaps; retrieve real GWP only if authorized, without estimating, model edits or EPD audit."
     },
     {
       "id": "jimu-lca",

@@ -2,6 +2,12 @@ name: Validate catalog
 on:
   push:
   pull_request:
+  workflow_dispatch:
+    inputs:
+      expected_head:
+        description: 'Exact synchronization commit to validate'
+        required: true
+        type: string
 permissions:
   contents: read
 jobs:
@@ -9,7 +15,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Bind dispatched validation to its exact head
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          EXPECTED_HEAD: ${{ inputs.expected_head }}
+          ACTUAL_HEAD: ${{ github.sha }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          test "$EXPECTED_HEAD" = "$ACTUAL_HEAD"
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          REMOTE=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/$GITHUB_REF_NAME" --jq .object.sha)
+          test "$REMOTE" = "$EXPECTED_HEAD"
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
       - run: npm test
+      - name: Check synchronization tooling syntax
+        run: |
+          for file in scripts/consumer-sync/*.mjs; do node --check "$file"; done
+      - name: Reject a moved synchronization branch
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          EXPECTED_HEAD: ${{ inputs.expected_head }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          REMOTE=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/$GITHUB_REF_NAME" --jq .object.sha)
+          test "$REMOTE" = "$EXPECTED_HEAD"

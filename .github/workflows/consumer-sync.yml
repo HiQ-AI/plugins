@@ -1,0 +1,53 @@
+name: Synchronize published consumers
+on:
+  schedule:
+    - cron: '43 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency:
+  group: consumer-sync
+  cancel-in-progress: false
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Reuse one open synchronization PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          BRANCH=$(gh pr list --state open --json headRefName --jq '[.[] | select(.headRefName | startswith("automation/consumer-sync-"))][0].headRefName // ""')
+          if [ -z "$BRANCH" ]; then
+            # Recover a pushed branch whose PR creation failed on the prior run.
+            for REF in $(git for-each-ref --sort=-refname --format='%(refname:short)' 'refs/remotes/origin/automation/consumer-sync-*'); do
+              CANDIDATE=${REF#origin/}
+              CLOSED=$(gh pr list --state all --head "$CANDIDATE" --json number --jq length)
+              if [ "$CLOSED" = 0 ] && ! git merge-base --is-ancestor "$REF" origin/main; then BRANCH=$CANDIDATE; break; fi
+            done
+          fi
+          if [ -n "$BRANCH" ]; then
+            printf '%s\n' "$BRANCH" | grep -Eq '^automation/consumer-sync-[0-9]+$' || exit 1
+            git fetch origin "$BRANCH"
+            git checkout -b "$BRANCH" FETCH_HEAD
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git merge origin/main --no-edit
+          else
+            BRANCH="automation/consumer-sync-$(date -u +%Y%m%d%H%M%S)"
+          fi
+          echo "SYNC_BRANCH=$BRANCH" >> "$GITHUB_ENV"
+      - name: Verify registered feeds and stage complete consumer updates
+        run: node scripts/consumer-sync/sync.mjs
+      - name: Create or update normal PR and dispatch exact-head validation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/consumer-sync/pr.mjs

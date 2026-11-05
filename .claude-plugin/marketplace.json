@@ -35,7 +35,7 @@
       "name": "cortex-epd",
       "source": "./plugins/cortex-epd",
       "description": "EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.22.candidate.41820743400.1.2. Stability and professional acceptance remain incomplete; not certification.",
-      "version": "0.1.3"
+      "version": "0.20261104.171240"
     }
   ]
 }

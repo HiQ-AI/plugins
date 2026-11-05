@@ -22,7 +22,7 @@ This loads instructions and agent roles, not a CLI, credentials or business data
 
 ## Native CLI and requirements
 
-- Plugin version: **0.1.3**.
+- Plugin package version: see the marketplace manifest.
 - CLI executable: `cortex-epd`. Actual CLI version: **0.1.0-dev.22.candidate.41820743400.1.2**; native `expert-release` format, not a supply wrapper.
 - Catalog platforms: `darwin-arm64, linux-x64, win32-x64`. Missing platforms are unsupported by this catalog.
 - Exact archive URLs, SHA256 and executable/skill paths: [release catalog](https://github.com/HiQ-AI/plugins/blob/main/marketplace.json).

@@ -1,0 +1,29 @@
+[
+  {
+    "market": "plugins",
+    "channel": "incremental-prerelease",
+    "source": "cortex-epd",
+    "ids": [
+      "cortex-epd"
+    ],
+    "archivePrefixes": [
+      "/experts/cortex-epd/v"
+    ]
+  },
+  {
+    "source": "cortex-org-wiki",
+    "blocked": "Compatible consumer publisher/discovery not established; current pins preserved. Recovery: HiQ-AI/plugins#8."
+  },
+  {
+    "source": "hiq-editor",
+    "blocked": "Compatible consumer publisher/discovery not established; current pins preserved. Recovery: HiQ-AI/plugins#8."
+  },
+  {
+    "source": "jimu-lca",
+    "blocked": "Compatible consumer publisher/discovery not established; current pins preserved. Recovery: HiQ-AI/plugins#8."
+  },
+  {
+    "source": "cortex-lca-expert",
+    "blocked": "Compatible consumer publisher/discovery not established; current pins preserved. Recovery: HiQ-AI/plugins#8."
+  }
+]

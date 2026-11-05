@@ -279,9 +279,9 @@
       "id": "cortex-epd",
       "type": "plugin",
       "name": "EPD 审核（增量预发行）",
-      "description": "使用已公开的增量预发行 CLI 0.1.0-dev.23.candidate.41915874672.1.2 开展授权的 EPD 证据审查与报告解读；稳定性和专业验收仍未完成，不等于认证。",
-      "description_en": "EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.23.candidate.41915874672.1.2. Stability and professional acceptance remain incomplete; not certification.",
-      "version": "0.20261105.20031",
+      "description": "使用已公开的增量预发行 CLI 0.1.0-dev.24.candidate.41970497782.1.2 开展授权的 EPD 证据审查与报告解读；稳定性和专业验收仍未完成，不等于认证。",
+      "description_en": "EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.24.candidate.41970497782.1.2. Stability and professional acceptance remain incomplete; not certification.",
+      "version": "0.20261105.54649",
       "author": "HiQ",
       "category": "lca",
       "tags": [
@@ -290,8 +290,8 @@
         "preview"
       ],
       "path": "plugins/cortex-epd",
-      "requirements": "完整原生增量预发行 0.1.0-dev.23.candidate.41915874672.1.2；需要支持 expert-release 格式的新 Host。Docling 2.140.0-1 另行准备，审核需要 CLI 登录、epd-audit 权益、明确委托和模型费用授权。Windows 未签名，可能触发 SmartScreen；Intel Mac 不支持。",
-      "requirements_en": "Complete native incremental prerelease 0.1.0-dev.23.candidate.41915874672.1.2; requires a Host supporting expert-release format. Prepare locked Docling 2.140.0-1 separately. Reviews require CLI login, epd-audit entitlement, delegation and model-cost authorization. Windows is unsigned and may show SmartScreen; Intel Mac unsupported.",
+      "requirements": "完整原生增量预发行 0.1.0-dev.24.candidate.41970497782.1.2；需要支持 expert-release 格式的新 Host。Docling 2.140.0-1 另行准备，审核需要 CLI 登录、epd-audit 权益、明确委托和模型费用授权。Windows 未签名，可能触发 SmartScreen；Intel Mac 不支持。",
+      "requirements_en": "Complete native incremental prerelease 0.1.0-dev.24.candidate.41970497782.1.2; requires a Host supporting expert-release format. Prepare locked Docling 2.140.0-1 separately. Reviews require CLI login, epd-audit entitlement, delegation and model-cost authorization. Windows is unsigned and may show SmartScreen; Intel Mac unsupported.",
       "components": {
         "skills": [
           {
@@ -315,21 +315,21 @@
         ],
         "cli": {
           "name": "cortex-epd",
-          "version": "0.1.0-dev.23.candidate.41915874672.1.2",
+          "version": "0.1.0-dev.24.candidate.41970497782.1.2",
           "format": "expert-release",
           "executable": "cortex-epd",
           "releases": {
             "darwin-arm64": {
-              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.23.candidate.41915874672.1.2/darwin-arm64/cortex-epd-0.1.0-dev.23.candidate.41915874672.1.2-darwin-arm64.tar.gz",
-              "sha256": "072e79ccce83e51073391ae9f186dc227fd87856eb821a360b05f124ecdf1945"
+              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.24.candidate.41970497782.1.2/darwin-arm64/cortex-epd-0.1.0-dev.24.candidate.41970497782.1.2-darwin-arm64.tar.gz",
+              "sha256": "bdad59a2caa19ae98b604811f253cfb51cbb72b4f647b592930f817e09152a9c"
             },
             "linux-x64": {
-              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.23.candidate.41915874672.1.2/linux-x64/cortex-epd-0.1.0-dev.23.candidate.41915874672.1.2-linux-x64.tar.gz",
-              "sha256": "2b6de7a8ce02cab3fc4831d396bd041815d8677f0829a898bc2706473a8c6a80"
+              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.24.candidate.41970497782.1.2/linux-x64/cortex-epd-0.1.0-dev.24.candidate.41970497782.1.2-linux-x64.tar.gz",
+              "sha256": "f4a3816309a13a6a5bde3569c4cc739a14c27b09455535db120fb117001aa95d"
             },
             "win32-x64": {
-              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.23.candidate.41915874672.1.2/win32-x64/cortex-epd-0.1.0-dev.23.candidate.41915874672.1.2-win32-x64.tar.gz",
-              "sha256": "92e0e83fd66ce178d9fc06dea894e3c36a2bbcaf34a0eb0b2ca8aa5d15ed8329"
+              "url": "https://download.hiq.earth/experts/cortex-epd/v0.1.0-dev.24.candidate.41970497782.1.2/win32-x64/cortex-epd-0.1.0-dev.24.candidate.41970497782.1.2-win32-x64.tar.gz",
+              "sha256": "7faad53000bf0ef7a304347382a22a9604656f1f4f11c1aded438a3db681b380"
             }
           },
           "skillPaths": {

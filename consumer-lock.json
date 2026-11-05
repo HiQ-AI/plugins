@@ -1,7 +1,7 @@
 {
   "cortex-epd": {
-    "sequence": "20261105020031",
-    "revision": "26c05f43eace71034e9e553955cbc66d91bbeec3",
-    "sha256": "b5748c39fe7551a3f0cd8ae287ccbe3e7feae528dfae2cf93388306ff208966e"
+    "sequence": "20261105054649",
+    "revision": "c30187bddd8f86b3bb12f174ca54646690b29c5d",
+    "sha256": "e7802e1f133ce73661f1cbbe8fea002da70eb9ece45f1793fc2f5f3be3c822ac"
   }
 }

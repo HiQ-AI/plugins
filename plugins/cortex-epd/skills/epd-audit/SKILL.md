@@ -15,7 +15,7 @@ allowed-tools:
   - Bash(cortex-epd skill list *)
   - Bash(cortex-epd skill show *)
 metadata:
-  cli-version: "0.1.0-dev.23.candidate.41915874672.1.2"
+  cli-version: "0.1.0-dev.24.candidate.41970497782.1.2"
 ---
 
 # EPD audit with cortex-epd

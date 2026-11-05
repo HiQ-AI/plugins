@@ -1,6 +1,6 @@
 # CLI command reference
 
-Generated from cortex-epd schema (CLI 0.1.0-dev.22.candidate.41820743400.1.2). Do not edit by hand.
+Generated from cortex-epd schema (CLI 0.1.0-dev.23.candidate.41915874672.1.2). Do not edit by hand.
 
 ## Contents
 

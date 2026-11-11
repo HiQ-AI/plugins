@@ -23,7 +23,7 @@ This loads instructions and agent roles, not a CLI, credentials or business data
 ## Native CLI and requirements
 
 - Plugin package version: see the marketplace manifest.
-- CLI executable: `cortex-epd`. Actual CLI version: **0.1.0-dev.24.candidate.41970497782.1.2**; native `expert-release` format, not a supply wrapper.
+- CLI executable: `cortex-epd`. Actual CLI version: **0.1.0-dev.27.candidate.42341891670.1.2**; native `expert-release` format, not a supply wrapper.
 - Catalog platforms: `darwin-arm64, linux-x64, win32-x64`. Missing platforms are unsupported by this catalog.
 - Exact archive URLs, SHA256 and executable/skill paths: [release catalog](https://github.com/HiQ-AI/plugins/blob/main/marketplace.json).
 
@@ -33,7 +33,7 @@ Start with the matching CLI's version and help. Do not guess commands or assume 
 
 ## Limits and side effects
 
-Executable **0.1.0-dev.24.candidate.41970497782.1.2** is a published incremental prerelease. Stability and professional acceptance remain incomplete: a real-case run exhausted network retries without a final report; repeat-run stability, normative coverage, clean holdout and institution-approved templates remain unaccepted. Original candidate `promotable:false` evidence is retained, not rewritten. Windows is unsigned and may show SmartScreen; do not disable OS protection. A report is not a certificate or signed opinion. See [release and Host compatibility](https://github.com/HiQ-AI/plugins/blob/main/docs/EPD_RELEASE.md).
+Executable **0.1.0-dev.27.candidate.42341891670.1.2** is a published incremental prerelease. Stability and professional acceptance remain incomplete: a real-case run exhausted network retries without a final report; repeat-run stability, normative coverage, clean holdout and institution-approved templates remain unaccepted. Original candidate `promotable:false` evidence is retained, not rewritten. Windows is unsigned and may show SmartScreen; do not disable OS protection. A report is not a certificate or signed opinion. See [release and Host compatibility](https://github.com/HiQ-AI/plugins/blob/main/docs/EPD_RELEASE.md).
 
 Use only authorized input, preserve originals, keep credentials out of conversations and inspect actual receipts/readback. Do not blindly repeat an uncertain write. [Shared capability and permission boundaries](https://github.com/HiQ-AI/plugins/blob/main/docs/CAPABILITIES.md) apply.
 

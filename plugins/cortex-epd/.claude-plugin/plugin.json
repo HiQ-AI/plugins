@@ -1,7 +1,7 @@
 {
   "name": "cortex-epd",
-  "version": "0.20261105.54649",
-  "description": "EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.24.candidate.41970497782.1.2. Stability and professional acceptance remain incomplete; not certification.",
+  "version": "0.20261111.50910",
+  "description": "EPD evidence review and report interpretation with published incremental prerelease CLI 0.1.0-dev.27.candidate.42341891670.1.2. Stability and professional acceptance remain incomplete; not certification.",
   "author": {
     "name": "HiQ"
   },
